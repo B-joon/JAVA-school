@@ -1,0 +1,16 @@
+package com.homework;
+
+import java.util.Scanner;
+
+public class Calendars {
+	public static int[] monthArray = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31}
+	
+		
+	}
+
+	public static void main(String[] args) {
+
+		
+	}
+
+}

@@ -1,0 +1,21 @@
+package com.test01;
+
+public class IfTest {
+
+	public static void main(String[] args) {
+
+	}
+
+	public static void test01(int i) {
+
+	}
+
+	public static void test02(int i) {
+		
+	}
+	public static void test03(char c) {
+		
+	}
+	
+	
+}

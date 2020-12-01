@@ -1,0 +1,16 @@
+package com.homework;
+
+public class ddddddddddd {
+
+	public static void main(String[] args) {
+		
+		int j = 2;
+		
+		int[] a = new int[5];
+		a[0] = 1;
+		
+		a[j] = a[j] + a[j-1];
+
+	}
+
+}

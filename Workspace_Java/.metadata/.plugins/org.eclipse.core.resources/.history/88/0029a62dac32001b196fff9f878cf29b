@@ -1,0 +1,15 @@
+package com.test02;
+
+public class RandomTest01 {
+
+	public static void main(String[] args) {
+		
+		useMathClass();
+
+	}
+	
+	public static void useMathClass() {
+		
+	}
+
+}

@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<qualifiedTypeNameHistroy>
+    <fullyQualifiedTypeName name="com.sun.tools.classfile.Opcode.Set"/>
+    <fullyQualifiedTypeName name="com.test01.MethodTest02"/>
+    <fullyQualifiedTypeName name="com.test02.MethodTest03"/>
+    <fullyQualifiedTypeName name="com.test01.MethodTest01"/>
+    <fullyQualifiedTypeName name="com.sun.tools.sjavac.comp.dependencies.PublicApiCollector"/>
+    <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="java.lang.Double"/>
+    <fullyQualifiedTypeName name="java.util.Calendar"/>
+    <fullyQualifiedTypeName name="com.test03.MyCalc"/>
+    <fullyQualifiedTypeName name="com.test04.Student"/>
+    <fullyQualifiedTypeName name="java.lang.ArrayIndexOutOfBoundsException"/>
+    <fullyQualifiedTypeName name="com.sun.tools.javac.code.Attribute.Array"/>
+    <fullyQualifiedTypeName name="com.test01.FruitBasket"/>
+    <fullyQualifiedTypeName name="com.sun.swing.internal.plaf.metal.resources.metal"/>
+    <fullyQualifiedTypeName name="com.sun.tools.classfile.StackMapTable_attribute.chop_frame"/>
+    <fullyQualifiedTypeName name="java.lang.Character"/>
+    <fullyQualifiedTypeName name="sun.jvm.hotspot.ci.ciBaseObject"/>
+    <fullyQualifiedTypeName name="com.test02.Season"/>
+    <fullyQualifiedTypeName name="com.test03.Score"/>
+    <fullyQualifiedTypeName name="org.graalvm.compiler.core.common.cfg.Loop"/>
+    <fullyQualifiedTypeName name="org.graalvm.compiler.lir.amd64.vector.AMD64VectorMove.SaveRegistersOp"/>
+    <fullyQualifiedTypeName name="jdk.javadoc.internal.doclets.toolkit.taglets.SummaryTaglet"/>
+    <fullyQualifiedTypeName name="sun.security.mscapi.PRNG"/>
+    <fullyQualifiedTypeName name="jdk.internal.jshell.tool.StopDetectingInputStream"/>
+    <fullyQualifiedTypeName name="com.sun.org.apache.xpath.internal.operations.String"/>
+    <fullyQualifiedTypeName name="java.util.Arrays"/>
+    <fullyQualifiedTypeName name="org.graalvm.compiler.lir.amd64.vector.AMD64VectorShuffle.ShuffleBytesOp"/>
+    <fullyQualifiedTypeName name="java.util.Collections"/>
+    <fullyQualifiedTypeName name="com.sun.tools.javac.code.Scope.StarImportScope"/>
+    <fullyQualifiedTypeName name="org.graalvm.compiler.lir.amd64.AMD64StringIndexOfOp"/>
+    <fullyQualifiedTypeName name="com.test04.StarPrn"/>
+    <fullyQualifiedTypeName name="com.sun.jndi.url.rmi.rmiURLContext"/>
+    <fullyQualifiedTypeName name="java.lang.Math"/>
+    <fullyQualifiedTypeName name="java.util.Random"/>
+    <fullyQualifiedTypeName name="sun.jvm.hotspot.oops.java_lang_Class"/>
+    <fullyQualifiedTypeName name="com.sun.org.apache.xalan.internal.xsltc.compiler.sym"/>
+    <fullyQualifiedTypeName name="java.util.Scanner"/>
+    <fullyQualifiedTypeName name="java.lang.System"/>
+    <fullyQualifiedTypeName name="com.cal.LeapYear"/>
+    <fullyQualifiedTypeName name="java.time.DayOfWeek"/>
+    <fullyQualifiedTypeName name="java.lang.String"/>
+</qualifiedTypeNameHistroy>

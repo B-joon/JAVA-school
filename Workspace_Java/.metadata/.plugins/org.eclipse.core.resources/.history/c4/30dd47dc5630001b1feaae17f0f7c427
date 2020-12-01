@@ -1,0 +1,48 @@
+package com.test02;
+
+import jdk.internal.jshell.tool.StopDetectingInputStream;
+
+/*
+ * A B C D E
+ * F G H I J
+ * K L M N O
+ * P Q R S T
+ * U V W X Y
+ * Z
+ */
+
+public class BreakTest {
+
+	public static void main(String[] args) {
+		prn();
+
+	}
+	
+	public static void prn() {
+		
+		int count = 0;
+		char c = 'A';
+		boolean stop = false;
+		
+		// 조건문 앞에 !를 붙이면 값이 반대가 된다.
+		while (!stop) {
+			while (stop) {
+				System.out.print(c + " ");
+				c++;
+				count++;
+				
+				if (count % 5 == 0) {
+					break;
+				}
+				if (count == 26) {
+					stop = true;
+					break;
+				}
+			}
+			System.out.println();
+			
+			
+		}
+	}
+
+}

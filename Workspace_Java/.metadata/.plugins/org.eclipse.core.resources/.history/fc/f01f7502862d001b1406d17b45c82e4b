@@ -1,0 +1,38 @@
+package com.homework;
+
+import java.util.Calendar;
+import java.util.Scanner;
+
+
+
+public class Calendars {
+
+	public static void main(String[] args) {
+		
+		Calendar cal = Calendar.getInstance();
+		Scanner sc = new Scanner(System.in);
+		
+		int y, m;
+		
+		System.out.println("몇년도 달력 희망?");
+		
+		y = sc.nextInt();
+		
+		for (int j = 1; j <= 12; j++) {
+			
+			cal.set(y, j - 1, 1);
+			int w = cal.get(Calendar.DAY_OF_WEEK);
+			int end = cal.getActualMaximum(Calendar.DATE);
+		}
+		System.out.println("\t" + y + "년" + j + "월");
+		
+		for (int i = 1; i <= end; i++) {
+			System.out.println("\t" + i);
+			
+			if (++w % 7 == 1)
+				System.out.println();
+		}
+		System.out.println();
+	}
+
+}

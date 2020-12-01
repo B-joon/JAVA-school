@@ -1,0 +1,42 @@
+package com.homework;
+
+import java.util.Calendar;
+
+public class Calendars {
+
+	public static void main(String[] args) {
+
+		Calendar cal = Calendar.getInstance();
+
+		int nowYear = cal.get(Calendar.YEAR); //현재 년도
+		int nowMonth = cal.get(Calendar.MARCH); //현재 월
+		int today = cal.get(Calendar.DATE); //현재 날짜?
+		int lastDate = cal.getActualMaximum(Calendar.DATE); // 당월의 마지막 날짜까지
+		int week = cal.get(Calendar.DAY_OF_WEEK);
+
+		System.out.println();
+		System.out.println(nowYear + "년 " + nowMonth + "월");
+		System.out.println("===================================================");
+		System.out.println(" Sun\tMon\tTue\tWed\tThu\tFri\tSat");
+		System.out.println("---------------------------------------------------");
+		
+		for (int i = 1; i < week; i++) {
+			System.out.print("\t");
+		}
+
+		for (int i = 1; i <= lastDate; i++) { // 1일~마지막 날까지 반복
+
+			if (i == today) {
+				System.out.printf("%2d★\t", i); //오늘 표시
+
+			} else {
+				System.out.printf("%2d\t", i);
+			} if (i % 7 == 0) { //7의 배수
+				System.out.println();// 달력에서 탈출하지 않게 줄바꿈
+			}
+
+		}
+		System.out.println();
+		System.out.println("===================================================");
+	}
+}

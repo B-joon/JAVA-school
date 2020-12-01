@@ -1,0 +1,65 @@
+package com.test04;
+
+public class StarPrn {
+	
+	/*
+	 * ★
+	 * ★★
+	 * ★★★
+	 * ★★★★
+	 * ★★★★★
+	 */
+
+	public static void prn01() {
+		
+		for (int i = 0; i < 5; i++) {
+			for (int j = 0; j < 5; j++) {
+				System.out.print("★");
+			}
+			System.out.println();
+			
+		}
+		
+	}
+	/*
+	 * ★★★★★
+	 * ★★★★
+	 * ★★★
+	 * ★★
+	 * ★
+	 */
+	public static void prn02() {
+		
+	}
+	/*
+	 *     ★
+	 *    ★★
+	 *   ★★★
+	 *  ★★★★
+	 * ★★★★★
+	 */
+	public static void prn03() {
+		
+	}
+	/*
+	 * ★★★★★
+	 *  ★★★★
+	 *   ★★★
+	 *    ★★
+	 *     ★
+	 */
+	public static void prn04() {
+		
+	}
+	/*
+	 *     ★
+	 *    ★★★
+	 *   ★★★★★
+	 *  ★★★★★★★
+	 * ★★★★★★★★★
+	 */
+	public static void prn05() {
+		
+	}
+
+}

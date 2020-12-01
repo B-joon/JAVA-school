@@ -1,0 +1,23 @@
+package com.homework;
+
+import java.util.Calendar;
+import java.util.Scanner;
+
+public class Calendars1 {
+
+	public static void main(String[] args) {
+
+		Scanner scan = new Scanner(System.in);
+		Calendar cal = Calendar.getInstance();
+
+		System.out.println("년도를 입력해 주세요 :");
+		int year = scan.nextInt();
+		System.out.println("월을 입력해 주세요 :");
+		int month = scan.nextInt();
+
+		cal.set(Calendar.YEAR, Integer.valueOf(year));
+		cal.set(Calendar.MONTH, Integer.valueOf(month));
+		cal.set(Calendar.DAY_OF_MONTH, 1);
+
+	}
+}

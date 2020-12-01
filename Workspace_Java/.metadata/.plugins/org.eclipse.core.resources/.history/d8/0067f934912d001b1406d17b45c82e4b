@@ -1,0 +1,40 @@
+package com.homework;
+
+import java.util.Calendar;
+
+public class Calendars {
+
+	public static void main(String[] args) {
+
+		Calendar cal = Calendar.getInstance();
+		
+		int nowYear = cal.get(Calendar.YEAR);
+		int nowMonth = cal.get(Calendar.MARCH);
+		int today = cal.get(Calendar.DATE);
+		int nowWeek = cal.get(Calendar.DAY_OF_WEEK);
+		int lastDate = cal.getActualMaximum(Calendar.DATE);
+		
+		System.out.println(nowYear + "년 " + nowMonth + "월");
+		System.out.println("-----------------------------");
+		System.out.println("일\t 월\t 화\t 수\t 목\t 금\t 토");
+		
+		for (int i = 1; i < nowWeek; i++) {
+			System.out.printf("%d\t", i,); //prinf = %d, %f, %s, %c를 사용할때 씀
+			
+		}
+		for (int i = 1; i <= lastDate; i++) {
+			
+			if (i == today) {
+				System.out.printf("[%d]\t", i);
+				
+			}else {
+				System.out.printf("%d\t", i);
+			}
+			if (nowWeek % 7 == 0) {
+				System.out.println();
+				nowWeek++;
+			}
+		}
+	}
+
+}

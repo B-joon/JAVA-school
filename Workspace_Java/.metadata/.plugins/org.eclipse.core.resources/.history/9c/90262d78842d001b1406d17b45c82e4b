@@ -1,0 +1,16 @@
+package com.homework;
+
+import java.util.Calendar;
+
+public class Calendars {
+
+	public static void main(String[] args) {
+		
+		Calendar a = Calendar.getInstance();
+		
+		int year = a.get(Calendar.YEAR);
+		System.out.println(year);
+		
+	}
+
+}

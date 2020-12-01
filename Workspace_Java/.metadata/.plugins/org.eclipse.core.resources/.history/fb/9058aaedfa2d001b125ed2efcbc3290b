@@ -1,0 +1,21 @@
+package com.test01;
+
+import org.graalvm.compiler.lir.amd64.vector.AMD64VectorMove.SaveRegistersOp;
+
+public class MethodTest01 {
+	
+	// main method : 프로그램의 주 진입점
+	public static void main(String[] args) {
+		
+
+	}
+	
+	// method :기능, 명령문들의 집합
+	// 접근제한자 메모리영역 리턴타입 메소드명 (파라미터) {}
+	
+	public static void publicMethod() {
+		System.out.println("public method 호출!");
+	}
+	
+
+}
