@@ -13,7 +13,8 @@ public class MTest {
 		System.out.println("월을 입력해 주세요 : ");
 		int month = sc.nextInt();
 		
-		CalendarUseApi.Cal(year, month);
+		CalendarUseApi cal = new CalendarUseApi();
+		cal.prn(year, month);
 		
 		sc.close();
 	}
