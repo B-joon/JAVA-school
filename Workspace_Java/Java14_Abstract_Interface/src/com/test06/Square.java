@@ -19,13 +19,19 @@ public class Square extends AreaImpl {
 		up = sc.nextInt();
 		
 		area = (double)(down * up);
+		
+		setResult(area + "");
+		
 		sc.close();
 		
 	}
 
 	public void print() {
 		
-		System.out.println("사각형 " + Area.PRINT + area);
+//		System.out.println("사각형 " + Area.PRINT + area);
+		
+		System.out.print("사각형의 ");
+		super.print();
 		
 	}
 }

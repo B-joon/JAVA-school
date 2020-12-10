@@ -6,6 +6,8 @@ public abstract class AreaImpl implements Area {
 	
 	@Override
 	public void print() {
+		// super.PRINT X -> super : 부모"객체"
+		// Area.PRINT = "abcd"; X -> static final
 		System.out.println(Area.PRINT + result);
 	}
 

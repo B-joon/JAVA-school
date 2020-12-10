@@ -17,13 +17,17 @@ public class Circle extends AreaImpl {
 
 		area = radius * radius * Math.PI;
 		
+		setResult(area + "");
+		
 		sc.close();
 		
 	}
 
 	public void print() {
 		
-		System.out.println("원의 " + Area.PRINT + area);
+//		System.out.println("원의 " + Area.PRINT + area);
+		System.out.println("원의 ");
+		super.print();
 		
 	}
 }

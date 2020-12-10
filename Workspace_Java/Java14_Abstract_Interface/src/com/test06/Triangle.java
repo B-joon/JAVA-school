@@ -20,12 +20,19 @@ public class Triangle extends AreaImpl {
 		
 		area = (double)(down * up) / 2;
 		
+//		setResult(String.valueOf(area));
+//		setResult(Double.toString(area));
+		setResult(area + "");
+//		setResult(String.format("%.2f", area));
+		
 		sc.close();
 	}
 
 	public void print() {
 		
-		System.out.println("삼각형 " + Area.PRINT + area);
+//		System.out.println("삼각형 " + Area.PRINT + area);
+		System.out.println("삼각형의 ");
+		super.print();
 		
 		
 	}
