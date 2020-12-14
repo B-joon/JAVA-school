@@ -76,7 +76,7 @@ public class MTest02 {
 			
 		}
 		System.out.println("=======================");
-		// 3. Iterator : 컬렉션 저장 요소를 읽어오는 표준화된 방법
+		// 3. Iterator : 컬렉션프레임워크에 저장 요소를 읽어오는 표준화된 방법
 		// 커서를 가지고 있다.
 		Iterator<Score> iterator = set.iterator();
 		// 토크나이저
