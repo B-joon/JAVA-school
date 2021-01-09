@@ -10,4 +10,4 @@ SELECT MNO, MNAME, NICKNAME
 FROM MYTEST;
 
 INSERT INTO MYTEST
-VALUES (1, '관리자', '관리자아저씨');
+VALUES (2, '바보', '바보다');

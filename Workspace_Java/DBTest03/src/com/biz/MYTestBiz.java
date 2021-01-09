@@ -14,5 +14,21 @@ public class MYTestBiz {
 	{
 		return dao.selectList();
 	}
-
+	
+	public  MYTestDto selectOne() {
+		return dao.selectOne();
+	}
+	
+	public MYTestDto insert() {
+		return dao.insert();
+	}
+	
+	public MYTestDto update() {
+		return dao.update();
+	}
+	
+	public MYTestDto delete() {
+		return dao.delete();
+	}
+	
 }
