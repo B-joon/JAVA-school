@@ -43,6 +43,7 @@ public class MYTestDao {
 				temp.setNickname(rs.getString("NICKNAME"));
 				
 				list.add(temp);
+				
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

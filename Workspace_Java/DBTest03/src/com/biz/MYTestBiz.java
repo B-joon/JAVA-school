@@ -29,6 +29,5 @@ public class MYTestBiz {
 	
 	public MYTestDto delete() {
 		return dao.delete();
-	}
-	
+	}	
 }

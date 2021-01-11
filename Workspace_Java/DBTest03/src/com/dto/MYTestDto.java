@@ -20,7 +20,6 @@ public class MYTestDto {
 		this.mno = mno;
 		this.mname = mname;
 		this.nickname = nickname;
-		
 	}
 	
 	// getter & setter

@@ -6,7 +6,6 @@ import java.util.Scanner;
 import com.biz.MYTestBiz;
 import com.dto.MYTestDto;
 
-
 public class MYController {
 	
 	private static Scanner sc = new Scanner(System.in);
