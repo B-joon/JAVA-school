@@ -126,6 +126,7 @@ public class MTest04 {
 			stmt = con.createStatement();
 			
 			// 4.
+			// row
 			int res = stmt.executeUpdate(sql);
 			if (res > 0) {
 				System.out.println("입력 성공");

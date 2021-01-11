@@ -43,7 +43,7 @@ public class MTest03 {
 				+ " WHERE DEPTNO = " + deptno;
 		
 		Statement stmt = con.createStatement();
-		
+		// 결과 테이블
 		ResultSet rs = stmt.executeQuery(sql);
 		
 		while (rs.next()) {
