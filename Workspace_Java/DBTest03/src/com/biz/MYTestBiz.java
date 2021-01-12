@@ -15,19 +15,19 @@ public class MYTestBiz {
 		return dao.selectList();
 	}
 	
-	public  MYTestDto selectOne() {
-		return dao.selectOne();
+	public  MYTestDto selectOne(int mno) {
+		return dao.selectOne(mno);
 	}
 	
-	public MYTestDto insert() {
-		return dao.insert();
+	public int insert(MYTestDto dto) {
+		return dao.insert(dto);
 	}
 	
-	public MYTestDto update() {
-		return dao.update();
+	public int update(MYTestDto dto) {
+		return dao.update(dto);
 	}
 	
-	public MYTestDto delete() {
-		return dao.delete();
+	public int delete(int mno) {
+		return dao.delete(mno);
 	}	
 }

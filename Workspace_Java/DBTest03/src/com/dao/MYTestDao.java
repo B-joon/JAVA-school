@@ -57,10 +57,8 @@ public class MYTestDao {
 		return list;
 	}
 	
-	public MYTestDto selectOne() {
-		System.out.println("번호 입력 : ");
-		int mno = sc.nextInt();
-		
+	public MYTestDto selectOne(int mno) {
+
 		MYTestDto temp = new MYTestDto();
 		
 		Connection con = getConnection();
@@ -96,15 +94,7 @@ public class MYTestDao {
 		return temp;
 	}
 	
-	public MYTestDto insert() {
-		MYTestDto dto = new MYTestDto();
-		
-		System.out.println("추가할 번호 입력 : ");
-		int mno = sc.nextInt();
-		System.out.println("추가할 이름 입력 : ");
-		String mname = sc.next();
-		System.out.println("추가할 별명 입력 : ");
-		String nickname = sc.next();
+	public int insert(MYTestDto dto) {
 		
 		Connection con = getConnection();
 		
@@ -112,16 +102,16 @@ public class MYTestDao {
 				+ " VALUES (?, ?, ?) ";
 		
 		PreparedStatement pstm = null;
-		
+		int res = 0;
 		try {
 			pstm = con.prepareStatement(sql);
-			pstm.setInt(1, mno);
-			pstm.setString(2, mname);
-			pstm.setString(3, nickname);
+			pstm.setInt(1, dto.getMno());
+			pstm.setString(2, dto.getMname());
+			pstm.setString(3, dto.getNickname());
 			
-			int res = pstm.executeUpdate();
+			res = pstm.executeUpdate();
 			if (res > 0) {
-				System.out.println("추가 성공");
+				commit(con);
 			}
 			
 		} catch (SQLException e) {
@@ -132,18 +122,10 @@ public class MYTestDao {
 			close(con);
 		}
 		
-		return dto;
+		return res;
 	}
 	
-	public MYTestDto update() {
-		System.out.println("수정할 번호 입력 : ");
-		int mno = sc.nextInt();
-		System.out.println("수정할 이름 입력 : ");
-		String mname = sc.next();
-		System.out.println("수정할 별명 입력 : ");
-		String nickname = sc.next();
-		
-		MYTestDto dto = new MYTestDto();
+	public int update(MYTestDto dto) {
 		
 		Connection con = getConnection();
 		
@@ -152,16 +134,16 @@ public class MYTestDao {
 				+ " WHERE MNO = ? ";
 		
 		PreparedStatement pstm = null;
-		
+		int res = 0;
 		try {
 			pstm = con.prepareStatement(sql);
-			pstm.setString(1, mname);
-			pstm.setString(2, nickname);
-			pstm.setInt(3, mno);
+			pstm.setString(1, dto.getMname());
+			pstm.setString(2, dto.getNickname());
+			pstm.setInt(3, dto.getMno());
 			
-			int res = pstm.executeUpdate();
+			res = pstm.executeUpdate();
 			if (res > 0) {
-				System.out.println("수정 완료");
+				commit(con);
 			}
 			
 		} catch (SQLException e) {
@@ -172,15 +154,10 @@ public class MYTestDao {
 			close(con);
 		}
 		
-		return dto;
+		return res;
 	}
 	
-	public MYTestDto delete() {
-		
-		System.out.println("삭제할 번호 입력 : ");
-		int mno = sc.nextInt();
-		
-		MYTestDto dto = new MYTestDto();
+	public int delete(int mno) {
 		
 		Connection con = getConnection();
 		
@@ -188,14 +165,14 @@ public class MYTestDao {
 				+ " WHERE MNO = ? ";
 		
 		PreparedStatement pstm = null;
-		
+		int res = 0;
 		try {
 			pstm = con.prepareStatement(sql);
 			pstm.setInt(1, mno);
 			
-			int res = pstm.executeUpdate();
+			res = pstm.executeUpdate();
 			if (res > 0) {
-				System.out.println("삭제 성공");
+				commit(con);
 			}
 			
 		} catch (SQLException e) {
@@ -207,7 +184,7 @@ public class MYTestDao {
 		}
 		
 		
-		return dto;
+		return res;
 	}
 	
 }
