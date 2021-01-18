@@ -1,0 +1,22 @@
+@charset "EUC-KR";
+h1 {
+	background-color: skyblue;
+}
+#a {
+	color: red;
+}
+.b {
+	color: blue;
+}
+* {
+	padding: 2px;
+}
+p > strong {
+	color: orange;
+}
+p[id="c"] + p {
+	color: green;
+}
+p[title] {
+	font-size: 20pt;
+}
