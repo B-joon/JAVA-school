@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+
+<script type="text/javascript">
+
+    // window.onload = function() {}
+    onload = function() {
+        document.getElementsByTagName("button")[0].onclick = testDate01;
+        document.getElementsByTagName("button")[1].onclick = testDate02;
+        document.getElementsByTagName("button")[2].onclick = testDate03;
+        
+
+    }
+
+    function testDate01() {
+        var date = new Date();
+
+        var inputDate = document.getElementById("today");
+        inputDate.innerHTML = date.toDateString() + "<br/>";
+        inputDate.innerHTML += date.toLocaleDateString() + "<br/>";
+        inputDate.innerHTML += date.toLocaleString() + "<br/>";
+        inputDate.innerHTML += date.toLocaleTimeString() + "<br/>";
+    }
+
+    function testDate02() {
+        // id가 today인 태그의 innerHTML에
+        // 2021/01/21/목요일
+        var today = new Date();
+
+        var year = today.getFullYear();
+        var month = today.getMonth() + 1;
+        var date = today.getDate();
+        var day = today.getDay();
+
+        var dayOfWeek = ["일요일", "월요일", "화요일", "수요일", "목요일", "금요일", "토요일"];
+
+        document.getElementById("today").innerHTML = year + "/" + month + "/" + date + "/" + dayOfWeek[day];
+    }
+
+    function testDate03() {
+        // 2020 11 20
+        var year = 2020;
+        var month = 11;
+        var date = 20;
+
+        var start = new Date(year, month - 1, date);
+
+        document.getElementById("specific").innerHTML = start;
+    }
+
+</script>
+
+</head>
+<body>
+    
+    <h1>오늘 날짜 출력하기</h1>
+    <span id="today"></span><br/>
+    <button>오늘날짜</button>
+    <button>오늘날짜표현</button>
+
+    <h1>특정 날짜 출력하기</h1>
+    <span id="specific"></span>
+    <br/>
+    <button>특정날짜</button>
+
+    <h1>경과 날짜 구하기</h1>
+    <label>지정날짜</label>
+    <input type="date" id="dates" size="50"/><br/>
+
+    <label>경과일</label>
+    <input type="number" id="inputDate"/><br/>
+
+    <label>경과 후 날짜</label>
+    <input type="text" id="result" readonly="readonly"/>
+    <button>경과날짜</button>
+
+</body>
+</html>
