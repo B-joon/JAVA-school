@@ -11,6 +11,8 @@
         document.getElementsByTagName("button")[0].onclick = testDate01;
         document.getElementsByTagName("button")[1].onclick = testDate02;
         document.getElementsByTagName("button")[2].onclick = testDate03;
+        document.getElementsByTagName("button")[3].onclick = testDate04;
+        document.getElementsByTagName("button")[4].onclick = testDate05;
         
 
     }
@@ -51,6 +53,27 @@
         document.getElementById("specific").innerHTML = start;
     }
 
+    function testDate04() {
+        var dates = document.getElementById("dates");
+        var inputDate = document.querySelector("#inputDate");
+        // var inputDate = document.getElementById("inputDate");
+
+        var dDay = new Date(dates.value);
+        dDay.setDate(dDay.getDate() + parseInt(inputDate.value));
+
+        document.getElementById("result").value = dDay.toLocaleDateString();
+    }
+    function testDate05() {
+        var start = document.getElementById("start").value;
+        var end = document.querySelector("#end").value;
+
+        var startDate = new Date(start);
+        var endDate = new Date(end);
+
+        var result = (endDate.getTime() - startDate.getTime()) / (1000 * 60 * 60 * 24);
+        document.getElementById("res").value = result;
+    }
+
 </script>
 
 </head>
@@ -77,5 +100,13 @@
     <input type="text" id="result" readonly="readonly"/>
     <button>경과날짜</button>
 
+    <h1>D-Day</h1>
+    <label>시작 날짜</label>
+    <input type="date" id="start" size="50"/><br>
+    <label>종료 날짜</label>
+    <input type="date" id="end" size="50"/><br>
+    <label>남은 일수</label>
+    <input type="text" id="res" readonly="readonly"/>
+    <button>남은 일수 구하기</button>
 </body>
 </html>
