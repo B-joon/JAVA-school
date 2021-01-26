@@ -47,6 +47,15 @@
             }
         }
     }
+    function clearDiv() {
+        var resetchks = document.getElementsByName("chk");
+        // colorbox reset
+        for (var i = 0; i < resetchks.length; i++) {
+            document.getElementById(resetchks[i].value).style.backgroundColor="";
+            resetchks[i].checked = false;
+        }
+        document.getElementsByName("all")[0].checked=false;
+    }
 
 </script>
 
