@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+
+<script type="text/javascript">
+
+    function locationTest() {
+        // location.reload();                       // 새로고침
+        // location.href="http://www.naver.com";       // naver 이동
+        // location.assign("http://www.naver.com");    // href와 같음
+        location.replace("http://www.naver.com");   // 전 단계 이력 삭제 (덮어씌우기)
+    }
+
+</script>
+
+</head>
+<body>
+    
+    <a href="https://www.google.com/search?q=kh%EC%A0%95%EB%B3%B4%EA%B5%90%EC%9C%A1%EC%9B%90&oq=kh%EC%A0%95%EB%B3%B4%EA%B5%90%EC%9C%A1%EC%9B%90&aqs=chrome..69i57j0l6j69i61.7160j0j4&sourceid=chrome&ie=UTF-8">이동</a>
+
+    <button onclick="locationTest();">이동</button>
+
+</body>
+</html>

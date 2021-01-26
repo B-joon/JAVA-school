@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Document</title>
+
+<style type="text/css">
+
+    #colorbox {
+        width: 320px;
+        height: 320px;
+        position: relative;
+    }
+    #red, #green, #blue, #purple {
+        width: 150px;
+        height: 150px;
+        border: 1px solid black;
+        position: absolute;
+    }
+    #green {left: 160px;}
+    #blue {top: 160px;}
+    #purple {top: 160px; left: 160px;}
+
+</style>
+
+<script type="text/javascript">
+    // bool = this.checked : name의 all인 체크박스의 체크속성(true, false)
+    function allselect(bool) {
+        var chks = document.getElementsByName("chk");
+        for (var i = 0; i < chks.length; i++) {
+            chks[i].checked = bool;
+            
+        }
+    }
+    function sel() {
+
+        // 1. chk라는 이름을 가진 모든 checkbox 가져온다
+        var chks = document.getElementsByName("chk");
+        // 2. 만일 chk들 중에 체크되어있는 element가 있다면,
+        for (var i = 0; i < chks.length; i++) {
+            if (chks[i].checked) {
+                // 3. 체크되어있는 chk.value값을 Id로 가지는 요소의 배경색을 chk.value값으로 바꾸자.
+                // document.getElementById(???).style.backgroundColor=???
+                document.getElementById(chks[i].value).style.backgroundColor=chks[i].value;
+            } else {
+                document.getElementById(chks[i].value).style.backgroundColor="";
+            }
+        }
+    }
+
+</script>
+
+</head>
+<body>
+    
+    <div id="colorbox">
+        <div id="red">red</div>
+        <div id="green">green</div>
+        <div id="blue">blue</div>
+        <div id="purple">purple</div>
+    </div>
+
+    <div id="base">
+        <form>
+            <input type="checkbox" name="all" onclick="allselect(this.checked);">전체선택<br/>
+
+            <input type="checkbox" name="chk" value="red">빨강<br/>
+            <input type="checkbox" name="chk" value="green">초록<br/>
+            <input type="checkbox" name="chk" value="blue">파랑<br/>
+            <input type="checkbox" name="chk" value="purple">보라<br/>
+
+            <input type="button" value="선택" onclick="sel();">
+            <input type="button" value="초기화" onclick="clearDiv();">
+        </form>
+    </div>
+
+</body>
+</html>

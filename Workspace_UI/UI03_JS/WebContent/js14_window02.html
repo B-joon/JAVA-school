@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>팝업창</title>
+
+<script type="text/javascript">
+	// 팝업창 만들기에서 창열기 클릭해서 값을 입력 후 전달하면
+	// 팝업창 만들기 텍스트가 변경
+	function test(){
+		var val=document.getElementsByName("test")[0].value;
+		opener.document.getElementsByTagName("h1")[1].innerHTML=val;
+		close();
+	}
+</script>
+
+</head>
+<body>
+
+	<input type="text" name="test"/>
+	<input type="button" onclick="test()" value="전달"/>
+	<input type="button" onclick="self.close()" value="창닫기">
+
+
+</body>
+</html>
