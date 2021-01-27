@@ -48,13 +48,20 @@
         }
     }
     function clearDiv() {
-        var resetchks = document.getElementsByName("chk");
-        // colorbox reset
-        for (var i = 0; i < resetchks.length; i++) {
-            document.getElementById(resetchks[i].value).style.backgroundColor="";
-            resetchks[i].checked = false;
+        // var resetchks = document.getElementsByName("chk");
+        // // colorbox reset
+        // for (var i = 0; i < resetchks.length; i++) {
+        //     document.getElementById(resetchks[i].value).style.backgroundColor="";
+        //     resetchks[i].checked = false;
+        // }
+        // document.getElementsByName("all")[0].checked=false;
+
+        var colorBox = document.querySelectorAll("#colorbox > div")
+        for (var i = 0; i < colorBox.length; i++) {
+            colorBox[i].style.backgroundColor="";
         }
-        document.getElementsByName("all")[0].checked=false;
+        document.getElementsByName("all")[0].checked = false;
+        allselect(false);
     }
 
 </script>
