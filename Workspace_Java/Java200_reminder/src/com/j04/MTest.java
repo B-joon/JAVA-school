@@ -53,7 +53,7 @@ public class MTest {
 		
 		Set<Person> set = new HashSet<Person>();
 		set.addAll(list);
-		
+//		Map<K, V>
 		Map<String, Person> map = new HashMap<String, Person>();
 		for (int i = 0; i < people.length; i++) {
 			map.put(people[i].getName(), people[i]);
@@ -83,5 +83,6 @@ public class MTest {
 				System.out.println(entry.getKey() + " : " + entry.getValue().getAge());
 			}
 		}
+		
 	}
 }

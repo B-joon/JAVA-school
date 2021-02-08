@@ -8,10 +8,14 @@ public class MTest {
 		// 비버 울음소리 : ??
 		// 독수리 울음소리 : ??
 		
-		Beaver be = new Beaver("비버", 20);
+		Animal be = new Beaver();
 		be.bark("아악!!!!!");
-		
-		Eagle eagle = new Eagle("독수리", 20);
+		be.setKind("비버");
+		be.setAge(20);
+						// getKind, getAge
+		System.out.println(be);
+								//(setKind, setAge)
+		Animal eagle = new Eagle("독수리", 20);
 		eagle.bark("끼룩끼룩");
 		
 	}
