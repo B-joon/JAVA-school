@@ -1,4 +1,4 @@
-package com.myboard.db;
+package com.muldel.db;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
@@ -30,9 +30,7 @@ public class JDBCTemplate {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
 		return con;
-		
 	}
 	public static void close(ResultSet rs) {
 		try {

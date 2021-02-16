@@ -1,6 +1,6 @@
-package com.myboard.dao;
+package com.muldel.dao;
 
-import static com.myboard.db.JDBCTemplate.*;
+import static com.muldel.db.JDBCTemplate.*;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -9,33 +9,31 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.myboard.dto.MyBoardDto;
+import com.muldel.dto.MDBoardDto;
 
-public class MyBoardDao {
+public class MDBoardDaoImpl implements MDBoardDao {
 
-	public List<MyBoardDto> selectList() {
+	@Override
+	public List<MDBoardDto> selectList() {
 		
 		Connection con = getConnection();
-		
-		String sql = " SELECT SEQ, WRITER, TITLE, CONTENT, REGDATE "
-				+ " FROM MYBOARD "
-				+ " ORDER BY SEQ DESC ";
 		
 		PreparedStatement pstm = null;
 		ResultSet rs = null;
 		
-		List<MyBoardDto> list = new ArrayList<MyBoardDto>();
+		List<MDBoardDto> list = new ArrayList<MDBoardDto>();
 		
 		try {
-			pstm = con.prepareStatement(sql);
+			pstm = con.prepareStatement(SELECT_LIST_SQL);
+			
 			rs = pstm.executeQuery();
 			while (rs.next()) {
-				MyBoardDto dto = new MyBoardDto();
+				MDBoardDto dto = new MDBoardDto();
 				dto.setSeq(rs.getInt(1));
 				dto.setWriter(rs.getString(2));
 				dto.setTitle(rs.getString(3));
-				dto.setContent(rs.getNString(4));
-				dto.setDate(rs.getDate(5));
+				dto.setContent(rs.getString(4));
+				dto.setRegdate(rs.getDate(5));
 				
 				list.add(dto);
 			}
@@ -47,22 +45,20 @@ public class MyBoardDao {
 			close(pstm);
 			close(con);
 		}
+		
 		return list;
 	}
-	public MyBoardDto selectOne(int seq) {
+
+	@Override
+	public MDBoardDto selectOne(int seq) {
 		
 		Connection con = getConnection();
 		
-		String sql = " SELECT SEQ, WRITER, TITLE, CONTENT, REGDATE "
-				+ " FROM MYBOARD "
-				+ " WHERE SEQ = ? ";
-		
 		PreparedStatement pstm = null;
 		ResultSet rs = null;
-		MyBoardDto dto = new MyBoardDto();
-		
+		MDBoardDto dto = new MDBoardDto();
 		try {
-			pstm = con.prepareStatement(sql);
+			pstm = con.prepareStatement(SELECT_ONE_SQL);
 			pstm.setInt(1, seq);
 			
 			rs = pstm.executeQuery();
@@ -71,9 +67,10 @@ public class MyBoardDao {
 				dto.setWriter(rs.getString(2));
 				dto.setTitle(rs.getString(3));
 				dto.setContent(rs.getString(4));
-				dto.setDate(rs.getDate(5));
+				dto.setRegdate(rs.getDate(5));
 			}
 		} catch (SQLException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
 			close(rs);
@@ -83,18 +80,17 @@ public class MyBoardDao {
 		
 		return dto;
 	}
-	public int insert(MyBoardDto dto) {
+
+	@Override
+	public int insert(MDBoardDto dto) {
 		
 		Connection con = getConnection();
-		
-		String sql = " INSERT INTO MYBOARD "
-				+ " VALUSE(MYBOARDSEQ.NEXTVAL, ?, ?, ?, SYSDATE) ";
 		
 		PreparedStatement pstm = null;
 		int res = 0;
 		
 		try {
-			pstm = con.prepareStatement(sql);
+			pstm = con.prepareStatement(INSERT_SQL);
 			pstm.setString(1, dto.getWriter());
 			pstm.setString(2, dto.getTitle());
 			pstm.setString(3, dto.getContent());
@@ -113,22 +109,20 @@ public class MyBoardDao {
 		
 		return res;
 	}
-	public int update(MyBoardDto dto) {
+
+	@Override
+	public int update(MDBoardDto dto) {
 		
 		Connection con = getConnection();
-		
-		String sql = " UPDATE MYBOARD "
-				+ " SET TITLE = ?, CONTENT = ? "
-				+ " WHERE WRITER = ? ";
 		
 		PreparedStatement pstm = null;
 		int res = 0;
 		
 		try {
-			pstm = con.prepareStatement(sql);
+			pstm = con.prepareStatement(UPDATE_SQL);
 			pstm.setString(1, dto.getTitle());
 			pstm.setString(2, dto.getContent());
-			pstm.setString(3, dto.getWriter());
+			pstm.setInt(3, dto.getSeq());
 			
 			res = pstm.executeUpdate();
 			if (res > 0) {
@@ -144,18 +138,17 @@ public class MyBoardDao {
 		
 		return res;
 	}
+
+	@Override
 	public int delete(int seq) {
 		
 		Connection con = getConnection();
-		
-		String sql = " DELETE FROM MYBOARD "
-				+ " WHERE SEQ = ? ";
 		
 		PreparedStatement pstm = null;
 		int res = 0;
 		
 		try {
-			pstm = con.prepareStatement(sql);
+			pstm = con.prepareStatement(DELETE_SQL);
 			pstm.setInt(1, seq);
 			
 			res = pstm.executeUpdate();
@@ -171,6 +164,12 @@ public class MyBoardDao {
 		}
 		
 		return res;
-		
 	}
+
+	@Override
+	public int multiDelete(String[] seq) {
+		
+		return 0;
+	}
+
 }

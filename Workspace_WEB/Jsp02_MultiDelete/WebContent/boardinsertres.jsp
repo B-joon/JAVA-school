@@ -1,5 +1,8 @@
-<%@page import="com.myboard.dao.MyBoardDao"%>
-<%@page import="com.myboard.dto.MyBoardDto"%>
+<%@page import="com.muldel.dao.MDBoardDao"%>
+<%@page import="com.muldel.biz.MDBoardBizImpl"%>
+<%@page import="com.muldel.dto.MDBoardDto"%>
+<%@page import="com.muldel.dao.MDBoardDaoImpl"%>
+<%@page import="com.muldel.biz.MDBoardBiz"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
@@ -18,25 +21,26 @@
 	String title = request.getParameter("title");
 	String content = request.getParameter("content");
 	
-	MyBoardDto dto = new MyBoardDto();
+	MDBoardDto dto = new MDBoardDto();
 	dto.setWriter(writer);
 	dto.setTitle(title);
 	dto.setContent(content);
 	
-	MyBoardDao dao = new MyBoardDao();
-	int res = dao.insert(dto);
-	if (res > 0) {
+	MDBoardBiz biz = new MDBoardBizImpl();
+	
+	int res = biz.insert(dto);
+	if(res > 0) {
 %>
 	<script type="text/javascript">
 		alert("저장 성공");
-		location.href="./mylist.jsp";
+		location.href="./boardlist.jsp"
 	</script>
 <%
 	} else {
 %>
 	<script type="text/javascript">
 		alert("저장 실패");
-		location.href="./myinsert.jsp";
+		location.href="./boardinsert.jsp";
 	</script>
 <%
 	}

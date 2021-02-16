@@ -1,10 +1,12 @@
-<%@page import="com.myboard.dto.MyBoardDto"%>
-<%@page import="com.myboard.dao.MyBoardDao"%>
+<%@page import="com.muldel.dto.MDBoardDto"%>
+<%@page import="com.muldel.biz.MDBoardBizImpl"%>
+<%@page import="com.muldel.biz.MDBoardBiz"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    
 <%
 	request.setCharacterEncoding("UTF-8");
-	response.setContentType("text/html; charset=UTF-8");
+	response.setContentType("text/html; charset=UTF8");
 %>
 <!DOCTYPE html>
 <html>
@@ -15,12 +17,9 @@
 <body>
 <%
 	int seq = Integer.parseInt(request.getParameter("seq"));
-	MyBoardDao dao = new MyBoardDao();
-	MyBoardDto dto = dao.selectOne(seq);
+	MDBoardBiz biz = new MDBoardBizImpl();
+	MDBoardDto dto = biz.selectOne(seq);
 %>
-
-	<h1>내용</h1>
-	
 	<table border="1">
 		<tr>
 			<th>작성자</th>
@@ -36,12 +35,11 @@
 		</tr>
 		<tr>
 			<td colspan="2" align="right">
-				<input type="button" value="수정" onclick="location.href='./myupdate.jsp?seq=<%=dto.getSeq() %>'">
-				<input type="button" value="삭제" onclick="location.href='./mydelete.jsp?seq=<%=dto.getSeq() %>'">
-				<input type="button" value="목록" onclick="location.href='./mylist.jsp'">
+				<input type="button" value="수정" onclick="location.href='./boardupdate.jsp?seq=<%=dto.getSeq() %>'">
+				<input type="button" value="삭제" onclick="location.href='./boarddelete.jsp?seq=<%=dto.getSeq() %>'">
+				<input type="button" value="목록" onclick="location.href='./boardlist.jsp'">
 			</td>
 		</tr>
 	</table>
-
 </body>
 </html>

@@ -1,5 +1,9 @@
+<%@page import="com.muldel.dto.MDBoardDto"%>
+<%@page import="com.muldel.biz.MDBoardBizImpl"%>
+<%@page import="com.muldel.biz.MDBoardBiz"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+
 <%
 	request.setCharacterEncoding("UTF-8");
 	response.setContentType("text/html; charset=UTF-8");
@@ -11,8 +15,8 @@
 <title>Insert title here</title>
 </head>
 <body>
-	
-	<form action="./myinsert_res.jsp" method="post">
+
+	<form action="./boardinsertres.jsp" method="post">
 		<table border="1">
 			<tr>
 				<th>작성자</th>
@@ -27,13 +31,13 @@
 				<td><textarea rows="10" cols="60" name="content"></textarea></td>
 			</tr>
 			<tr>
-				<td colspan="2" align="right">
+				<td>
 					<input type="submit" value="저장">
-					<input type="button" value="취소" onclick="location.href='./mylist.jsp'">
+					<input type="button" value="취소" onclick="location.href='./boardlist.jsp'">
 				</td>
 			</tr>
 		</table>
 	</form>
-	
+
 </body>
 </html>

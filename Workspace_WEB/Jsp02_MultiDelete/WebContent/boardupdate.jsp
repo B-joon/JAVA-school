@@ -1,5 +1,6 @@
-<%@page import="com.myboard.dao.MyBoardDao"%>
-<%@page import="com.myboard.dto.MyBoardDto"%>
+<%@page import="com.muldel.dto.MDBoardDto"%>
+<%@page import="com.muldel.biz.MDBoardBizImpl"%>
+<%@page import="com.muldel.biz.MDBoardBiz"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
@@ -15,14 +16,14 @@
 <body>
 <%
 	int seq = Integer.parseInt(request.getParameter("seq"));
-	MyBoardDao dao = new MyBoardDao();
-	MyBoardDto dto = dao.selectOne(seq);
+	MDBoardBiz biz = new MDBoardBizImpl();
+	MDBoardDto dto = biz.selectOne(seq);
 %>
-	<form action="./myupdate_res.jsp" method="post">
+	<form action="./boardupdateres.jsp?seq=<%=dto.getSeq() %>" method="post">
 		<table border="1">
 			<tr>
 				<th>작성자</th>
-				<td><input type="text" name="writer" value="<%=dto.getWriter() %>" readonly="readonly"></td>
+				<td><%=dto.getWriter() %></td>
 			</tr>
 			<tr>
 				<th>제목</th>
@@ -35,7 +36,7 @@
 			<tr>
 				<td colspan="2" align="right">
 					<input type="submit" value="수정">
-					<input type="button" value="취소" onclick="location.href='./myselect.jsp?seq=<%=dto.getSeq() %>'">
+					<input type="button" value="취소" onclick="location.href=./boardselect.jsp?seq=<%=dto.getSeq() %>">
 				</td>
 			</tr>
 		</table>

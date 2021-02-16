@@ -1,24 +1,24 @@
-package com.myboard.dto;
+package com.muldel.dto;
 
 import java.util.Date;
 
-public class MyBoardDto {
+public class MDBoardDto {
 	
 	private int seq;
 	private String writer;
 	private String title;
 	private String content;
-	private Date date;
-
-	public MyBoardDto() {
+	private Date regdate;
+	
+	public MDBoardDto() {
 		
 	}
-	public MyBoardDto(int seq, String writer, String title, String content, Date date) {
+	public MDBoardDto(int seq, String writer, String title, String content, Date regDate) {
 		this.seq = seq;
 		this.writer = writer;
 		this.title = title;
 		this.content = content;
-		this.date = date;
+		this.regdate = regDate;
 	}
 	public int getSeq() {
 		return seq;
@@ -44,10 +44,11 @@ public class MyBoardDto {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public Date getDate() {
-		return date;
+	public Date getRegdate() {
+		return regdate;
 	}
-	public void setDate(Date date) {
-		this.date = date;
+	public void setRegdate(Date regdate) {
+		this.regdate = regdate;
 	}
+	
 }

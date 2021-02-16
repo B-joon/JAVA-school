@@ -2,8 +2,7 @@
 <%@page import="com.myboard.dto.MyBoardDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
-<% 
+<%
 	request.setCharacterEncoding("UTF-8");
 	response.setContentType("text/html; charset=UTF-8");
 %>
@@ -14,38 +13,34 @@
 <title>Insert title here</title>
 </head>
 <body>
-<% 
-
-	String myname = request.getParameter("myname");
-	String mytitle = request.getParameter("mytitle");
-	String mycontent = request.getParameter("mycontent");
-
+<%
+	String writer = request.getParameter("writer");
+	String title = request.getParameter("title");
+	String content = request.getParameter("content");
+	
 	MyBoardDto dto = new MyBoardDto();
-	dto.setMyname(myname);
-	dto.setMytitle(mytitle);
-	dto.setMycontent(mycontent);
+	dto.setWriter(writer);
+	dto.setTitle(title);
+	dto.setContent(content);
 	
 	MyBoardDao dao = new MyBoardDao();
 	
 	int res = dao.update(dto);
-
-	if (res > 0) {
+	if(res > 0) {
 %>
-	<script type="text/javascript">
-		alert("글수정 성공!");
-		location.href="mylist.jsp";
+	<script	type="text/javascript">
+		alert("수정 성공");
+		location.href="./mylist.jsp"
 	</script>
-
-<%		
+<%
 	} else {
 %>
 	<script type="text/javascript">
-		alert("수정 실패!");
-		location.href="myinsert.jsp";
+		alert("수정 실패");
+		location.href="./myupdate.jsp?seq=<%=dto.getSeq() %>"
 	</script>
-<%	
+<%
 	}
-
 %>
 </body>
 </html>
