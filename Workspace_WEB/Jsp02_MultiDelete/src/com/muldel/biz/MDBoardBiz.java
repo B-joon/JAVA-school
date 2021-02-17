@@ -5,7 +5,7 @@ import java.util.List;
 import com.muldel.dto.MDBoardDto;
 
 public interface MDBoardBiz {
-	
+
 	public List<MDBoardDto> selectList();
 	public MDBoardDto selectOne(int seq);
 	public int insert(MDBoardDto dto);

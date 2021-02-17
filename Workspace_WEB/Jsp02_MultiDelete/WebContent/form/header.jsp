@@ -6,13 +6,13 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
-	header {
-		background-color: hotpink;
-		height: 50px;
+	header{
+		background-color: skyblue;
+		height: 70px;
 	}
-	footer {
-		background-color: hotpink;
-		height: 30px;
+	footer{
+		background-color: skyblue;
+		height: 50px;
 		text-align: center;
 		line-height: 30px;
 	}

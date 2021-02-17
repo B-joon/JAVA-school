@@ -17,7 +17,7 @@
 	
 	MDBoardBiz biz = new MDBoardBizImpl();
 	int res = biz.delete(seq);
-	if(res > 0) {
+	if (res > 0) {
 %>
 	<script type="text/javascript">
 		alert("삭제 성공");

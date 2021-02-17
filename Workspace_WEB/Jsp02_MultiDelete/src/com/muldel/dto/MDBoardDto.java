@@ -3,22 +3,22 @@ package com.muldel.dto;
 import java.util.Date;
 
 public class MDBoardDto {
-	
+
 	private int seq;
 	private String writer;
 	private String title;
 	private String content;
-	private Date regdate;
+	private Date date;
 	
 	public MDBoardDto() {
-		
+		// TODO Auto-generated constructor stub
 	}
-	public MDBoardDto(int seq, String writer, String title, String content, Date regDate) {
+	public MDBoardDto(int seq, String writer, String title, String content, Date date) {
 		this.seq = seq;
 		this.writer = writer;
 		this.title = title;
 		this.content = content;
-		this.regdate = regDate;
+		this.date = date;
 	}
 	public int getSeq() {
 		return seq;
@@ -44,11 +44,10 @@ public class MDBoardDto {
 	public void setContent(String content) {
 		this.content = content;
 	}
-	public Date getRegdate() {
-		return regdate;
+	public Date getDate() {
+		return date;
 	}
-	public void setRegdate(Date regdate) {
-		this.regdate = regdate;
+	public void setDate(Date date) {
+		this.date = date;
 	}
-	
 }

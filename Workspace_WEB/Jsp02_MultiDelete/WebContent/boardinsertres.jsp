@@ -1,7 +1,5 @@
-<%@page import="com.muldel.dao.MDBoardDao"%>
 <%@page import="com.muldel.biz.MDBoardBizImpl"%>
 <%@page import="com.muldel.dto.MDBoardDto"%>
-<%@page import="com.muldel.dao.MDBoardDaoImpl"%>
 <%@page import="com.muldel.biz.MDBoardBiz"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
@@ -27,9 +25,8 @@
 	dto.setContent(content);
 	
 	MDBoardBiz biz = new MDBoardBizImpl();
-	
 	int res = biz.insert(dto);
-	if(res > 0) {
+	if (res > 0) {
 %>
 	<script type="text/javascript">
 		alert("저장 성공");
@@ -40,7 +37,7 @@
 %>
 	<script type="text/javascript">
 		alert("저장 실패");
-		location.href="./boardinsert.jsp";
+		location.href="./boardinsert.jsp"
 	</script>
 <%
 	}

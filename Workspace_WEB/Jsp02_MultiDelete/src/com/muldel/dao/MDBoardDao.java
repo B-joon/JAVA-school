@@ -15,7 +15,7 @@ public interface MDBoardDao {
 	String INSERT_SQL = " INSERT INTO MDBOARD "
 			+ " VALUES(MDBOARDSEQ.NEXTVAL, ?, ?, ?, SYSDATE) ";
 	String UPDATE_SQL = " UPDATE MDBOARD "
-			+ "	SET TITLE = ?, CONTENT = ? "
+			+ " SET TITLE = ?, CONTENT = ? "
 			+ " WHERE SEQ = ? ";
 	String DELETE_SQL = " DELETE FROM MDBOARD "
 			+ " WHERE SEQ = ? ";

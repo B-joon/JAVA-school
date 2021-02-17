@@ -1,6 +1,6 @@
 <%@page import="com.muldel.biz.MDBoardBizImpl"%>
-<%@page import="com.muldel.biz.MDBoardBiz"%>
 <%@page import="com.muldel.dto.MDBoardDto"%>
+<%@page import="com.muldel.biz.MDBoardBiz"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%
@@ -20,14 +20,13 @@
 	String content = request.getParameter("content");
 	
 	MDBoardDto dto = new MDBoardDto();
-	dto.setTitle(title);
 	dto.setSeq(seq);
+	dto.setTitle(title);
 	dto.setContent(content);
 	
 	MDBoardBiz biz = new MDBoardBizImpl();
 	int res = biz.update(dto);
-	
-	if(res > 0) {
+	if (res > 0) {
 %>
 	<script type="text/javascript">
 		alert("수정 성공");
@@ -38,7 +37,7 @@
 %>
 	<script type="text/javascript">
 		alert("수정 실패");
-		location.href="./boradupdate.jsp?seq=<%=dto.getSeq() %>";
+		location.href="./boardupdate.jsp?seq=<%=dto.getSeq() %>";
 	</script>
 <%
 	}

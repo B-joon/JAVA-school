@@ -30,7 +30,16 @@ public class JDBCTemplate {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		return con;
+	}
+	public static void close(Connection con) {
+		try {
+			con.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	public static void close(ResultSet rs) {
 		try {
@@ -43,14 +52,6 @@ public class JDBCTemplate {
 	public static void close(Statement stmt) {
 		try {
 			stmt.close();
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	public static void close(Connection con) {
-		try {
-			con.close();
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

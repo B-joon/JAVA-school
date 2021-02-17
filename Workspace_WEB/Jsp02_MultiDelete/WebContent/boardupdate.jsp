@@ -36,7 +36,7 @@
 			<tr>
 				<td colspan="2" align="right">
 					<input type="submit" value="수정">
-					<input type="button" value="취소" onclick="location.href=./boardselect.jsp?seq=<%=dto.getSeq() %>">
+					<input type="button" value="취소" onclick="location.href='./boardselect.jsp?seq=<%=dto.getSeq() %>'">
 				</td>
 			</tr>
 		</table>

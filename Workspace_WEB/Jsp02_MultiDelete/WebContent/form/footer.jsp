@@ -7,8 +7,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	
-	<footer>kh정보교육원 &copy; all rights reserved ...</footer>
-	
+
+	<footer>
+		kh정보교육원
+	</footer>
+
 </body>
 </html>
