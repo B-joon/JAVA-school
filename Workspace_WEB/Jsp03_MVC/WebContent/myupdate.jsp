@@ -22,15 +22,15 @@
 		<table border="1">
 			<tr>
 				<th>작성자</th>
-				<td><input type="text" name="writer"></td>
+				<td><input type="text" name="writer" value="<%=dto.getWriter() %>"></td>
 			</tr>
 			<tr>
 				<th>제목</th>
-				<td><input type="text" name="title"></td>
+				<td><input type="text" name="title" value="<%=dto.getTitle()%>"></td>
 			</tr>
 			<tr>
 				<th>내용</th>
-				<td><textarea rows="10" cols="60" readonly="readonly" name="content"><%=dto.getContent() %></textarea></td>
+				<td><textarea rows="10" cols="60" name="content"><%=dto.getContent() %></textarea></td>
 			</tr>
 			<tr>
 				<td colspan="2" align="right">

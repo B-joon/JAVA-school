@@ -83,7 +83,7 @@
 	} else if (command.equals("update")) {
 		int seq = Integer.parseInt(request.getParameter("seq"));
 		MVCBoardDto dto = biz.selectOne(seq);
-		
+		// 전달해줄 값이 있으면 request 객체에 담자
 		request.setAttribute("one", dto);
 		
 		pageContext.forward("myupdate.jsp");
@@ -103,14 +103,37 @@
 %>
 		<script type="text/javascript">
 			alert("수정 완료");
-			location.href="./mycontrollrt.jsp?command=myselect&seq=<%=dto.getSeq() %>"
+			location.href="./mycontroller.jsp?command=list"
 		</script>
 <%
 		} else {
 %>
 		<script type="text/javascript">
 			alert("수정 실패");
-			location.href="";
+			// history.back()  회원가입 만들때는 사용하지 마시요
+			location.href="./mycontroller.jsp?command=update&seq=<%=dto.getSeq() %>";
+		</script>
+<%
+		}
+	} else if (command.equals("delete")) {
+		int seq = Integer.parseInt(request.getParameter("seq"));
+		
+		MVCBoardDto dto = new MVCBoardDto();
+		dto.setSeq(seq);
+		
+		int res = biz.delete(seq);
+		if (res > 0) {
+%>
+		<script type="text/javascript">
+			alert("삭제 성공");
+			location.href="./mycontroller.jsp?command=list";
+		</script>
+<%
+		} else {
+%>
+		<script type="text/javascript">
+			alert("삭제 성공");
+			location.href="./mycontroller.jsp?command=list";
 		</script>
 <%
 		}
