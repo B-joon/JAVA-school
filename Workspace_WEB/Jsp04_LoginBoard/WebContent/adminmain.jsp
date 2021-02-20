@@ -23,10 +23,10 @@
 	
 	<div>
 		<div>
-			<a href="">회원 전체 조회(탈퇴한 회원 포함)</a>
+			<a href="logincontroller.jsp?command=all">회원 전체 조회(탈퇴한 회원 포함)</a>
 		</div>
 		<div>
-			<a href="">회원 전체 조회(MYENABLED=Y)</a>
+			<a href="logincontroller.jsp?command=yes">회원 전체 조회(MYENABLED=Y)</a>
 		</div>
 	</div>
 </body>

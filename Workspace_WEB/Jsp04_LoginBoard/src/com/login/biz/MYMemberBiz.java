@@ -14,10 +14,10 @@ public class MYMemberBiz {
 	}
 
 	public List<MYMemberDto> selectAllUser() {
-		return null;
+		return dao.selectAllUser();
 	}
 	public List<MYMemberDto> selectEnabledUser() {
-		return null;
+		return dao.selectEnabledUser();
 	}
 	public int updateRole(int myno, String myrole) {
 		return 0;

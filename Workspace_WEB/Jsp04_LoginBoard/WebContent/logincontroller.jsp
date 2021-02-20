@@ -1,3 +1,4 @@
+<%@page import="java.util.List"%>
 <%@page import="com.login.dto.MYMemberDto"%>
 <%@page import="com.login.biz.MYMemberBiz"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
@@ -45,6 +46,18 @@
 		</script>
 <%
 		}
+	} else if (command.equals("all")) {
+		List<MYMemberDto> list = biz.selectAllUser();
+		
+		request.setAttribute("list", list);
+		
+		pageContext.forward("select.jsp");
+	} else if (command.equals("yes")) {
+		List<MYMemberDto> list1 = biz.selectEnabledUser();
+		
+		request.setAttribute("yes", list1);
+		
+		pageContext.forward("select.jsp");
 	}
 %>
 
