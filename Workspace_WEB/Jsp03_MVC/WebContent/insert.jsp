@@ -11,10 +11,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	
-	<h1>INSERT</h1>
-	
-	<form action="./mycontroller.jsp" method="post">
+	<form action="./controller.jsp" method="post">
 		<input type="hidden" name="command" value="insertres">
 		<table border="1">
 			<tr>
@@ -31,12 +28,11 @@
 			</tr>
 			<tr>
 				<td colspan="2" align="right">
-					<input type="submit" value="글작성">
-					<input type="button" value="취소" onclick="./location.href='./mycomtroller.jsp?command=list'">
+					<input type="submit" value="저장">
+					<input type="button" value="취소" onclick="location.href='controller.jsp?command=list'">
 				</td>
 			</tr>
 		</table>
 	</form>
-	
 </body>
 </html>

@@ -1,12 +1,13 @@
 package com.mvc.dao;
 
+import static com.mvc.db.JDBCTemplate.*;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
-import static com.mvc.db.JDBCTemplate.*;
 
 import com.mvc.dto.MVCBoardDto;
 
@@ -15,7 +16,7 @@ public class MVCBoardDaoImpl implements MVCBoardDao {
 	@Override
 	public List<MVCBoardDto> selectList() {
 		
-		Connection con  = getConnection();
+		Connection con = getConnection();
 		
 		PreparedStatement pstm = null;
 		ResultSet rs = null;
@@ -38,9 +39,11 @@ public class MVCBoardDaoImpl implements MVCBoardDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
-			close(rs, pstm, con);
+			close(rs);
+			close(pstm);
+			close(con);
 		}
-	
+		
 		return list;
 	}
 
@@ -68,7 +71,7 @@ public class MVCBoardDaoImpl implements MVCBoardDao {
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
-		}finally {
+		} finally {
 			close(rs);
 			close(pstm);
 			close(con);
@@ -99,7 +102,8 @@ public class MVCBoardDaoImpl implements MVCBoardDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
-			close(pstm, con);
+			close(pstm);
+			close(con);
 		}
 		
 		return res;
@@ -117,7 +121,7 @@ public class MVCBoardDaoImpl implements MVCBoardDao {
 			pstm = con.prepareStatement(UPDATE_SQL);
 			pstm.setString(1, dto.getTitle());
 			pstm.setString(2, dto.getContent());
-			pstm.setString(3, dto.getWriter());
+			pstm.setInt(3, dto.getSeq());
 			
 			res = pstm.executeUpdate();
 			if (res > 0) {
@@ -136,7 +140,7 @@ public class MVCBoardDaoImpl implements MVCBoardDao {
 
 	@Override
 	public int delete(int seq) {
-
+		
 		Connection con = getConnection();
 		
 		PreparedStatement pstm = null;
@@ -177,7 +181,6 @@ public class MVCBoardDaoImpl implements MVCBoardDao {
 				pstm.setString(1, seqs[i]);
 				pstm.addBatch();
 			}
-			
 			cnt = pstm.executeBatch();
 			
 			for (int i = 0; i < cnt.length; i++) {
@@ -185,14 +188,17 @@ public class MVCBoardDaoImpl implements MVCBoardDao {
 					res++;
 				}
 			}
-			
 			if (seqs.length == res) {
 				commit(con);
 			}
 			
+			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
+		} finally {
+			close(pstm);
+			close(con);
 		}
 		
 		return res;

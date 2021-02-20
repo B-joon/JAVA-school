@@ -14,17 +14,17 @@ public interface MVCBoardDao {
 			+ " WHERE SEQ = ? ";
 	String INSERT_SQL = " INSERT INTO MVCBOARD "
 			+ " VALUES(MVCBOARDSEQ.NEXTVAL, ?, ?, ?, SYSDATE) ";
-	String UPDATE_SQL = " UPDATE MVCBOARD "
+	String UPDATE_SQL = " UPDATE MVCBOARD"
 			+ " SET TITLE = ?, CONTENT = ? "
-			+ " WHERE WRITER = ? ";
+			+ " WHERE SEQ = ? ";
 	String DELETE_SQL = " DELETE FROM MVCBOARD "
 			+ " WHERE SEQ = ? ";
-
+	
 	public List<MVCBoardDto> selectList();
 	public MVCBoardDto selectOne(int seq);
 	public int insert(MVCBoardDto dto);
 	public int update(MVCBoardDto dto);
 	public int delete(int seq);
-
+	
 	public int multiDelete(String[] seqs);
 }

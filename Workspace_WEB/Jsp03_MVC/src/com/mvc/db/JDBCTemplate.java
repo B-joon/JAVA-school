@@ -20,6 +20,7 @@ public class JDBCTemplate {
 		String url = "jdbc:oracle:thin:@localhost:1521:xe";
 		String user = "kh";
 		String password = "kh";
+		
 		Connection con = null;
 		
 		try {
@@ -29,7 +30,9 @@ public class JDBCTemplate {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
 		return con;
+		
 	}
 	public static void close(ResultSet rs) {
 		try {
@@ -54,15 +57,6 @@ public class JDBCTemplate {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-	}
-	public static void close(ResultSet rs, Statement stmt, Connection con) {
-		close(rs);
-		close(stmt);
-		close(con);
-	}
-	public static void close(Statement stmt, Connection con) {
-		close(stmt);
-		close(con);
 	}
 	public static void commit(Connection con) {
 		try {

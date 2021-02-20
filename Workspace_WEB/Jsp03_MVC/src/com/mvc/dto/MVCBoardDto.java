@@ -11,7 +11,7 @@ public class MVCBoardDto {
 	private Date date;
 	
 	public MVCBoardDto() {
-		// TODO Auto-generated constructor stub
+
 	}
 	public MVCBoardDto(int seq, String writer, String title, String content, Date date) {
 		this.seq = seq;
@@ -20,6 +20,7 @@ public class MVCBoardDto {
 		this.content = content;
 		this.date = date;
 	}
+	
 	public int getSeq() {
 		return seq;
 	}

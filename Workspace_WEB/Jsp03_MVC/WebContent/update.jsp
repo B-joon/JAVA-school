@@ -13,20 +13,19 @@
 </head>
 <body>
 <%
-	MVCBoardDto dto = (MVCBoardDto) request.getAttribute("one");
+	MVCBoardDto dto = (MVCBoardDto) request.getAttribute("dto");
 %>
-	<h1>UPDATE</h1>
-	
-	<form action="./mycontroller.jsp" method="post">
+	<form action="./controller.jsp">
 		<input type="hidden" name="command" value="updateres">
+		<input type="hidden" name="seq" value="<%=dto.getSeq() %>">
 		<table border="1">
 			<tr>
 				<th>작성자</th>
-				<td><input type="text" name="writer" value="<%=dto.getWriter() %>"></td>
+				<td><%=dto.getWriter() %></td>
 			</tr>
 			<tr>
 				<th>제목</th>
-				<td><input type="text" name="title" value="<%=dto.getTitle()%>"></td>
+				<td><input type="text" value="<%=dto.getTitle() %>" name="title"></td>
 			</tr>
 			<tr>
 				<th>내용</th>
@@ -35,11 +34,10 @@
 			<tr>
 				<td colspan="2" align="right">
 					<input type="submit" value="수정">
-					<input type="button" value="취소" onclick="location.href='./mycontroller.jsp?command=list'">
+					<input type="button" value="취소" onclick="location.href='./controller.jsp?command=select&seq=<%=dto.getSeq() %>'">
 				</td>
 			</tr>
 		</table>
 	</form>
-	
 </body>
 </html>
