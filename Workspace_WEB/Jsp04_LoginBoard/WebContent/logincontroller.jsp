@@ -46,18 +46,105 @@
 		</script>
 <%
 		}
-	} else if (command.equals("all")) {
+	} else if (command.equals("listall")) {
 		List<MYMemberDto> list = biz.selectAllUser();
 		
 		request.setAttribute("list", list);
 		
-		pageContext.forward("select.jsp");
-	} else if (command.equals("yes")) {
-		List<MYMemberDto> list1 = biz.selectEnabledUser();
+		pageContext.forward("userlistall.jsp");
 		
-		request.setAttribute("yes", list1);
+	} else if (command.equals("listen")) {
+		List<MYMemberDto> list = biz.selectEnabledUser();
 		
-		pageContext.forward("select.jsp");
+		request.setAttribute("list", list);
+		
+		pageContext.forward("userlisten.jsp");
+		
+	} else if (command.equals("insert")) {
+		pageContext.forward("./regist.jsp");
+		
+	} else if (command.equals("logout")) {
+		// session scope에서 값 삭제 (만료)
+		session.invalidate();
+		response.sendRedirect("index.html");
+		
+	} else if (command.equals("updateform")) {
+		int myno = Integer.parseInt(request.getParameter("myno"));
+		
+		MYMemberDto dto = biz.selectUser(myno);
+		
+		request.setAttribute("dto", dto);
+		
+		pageContext.forward("updaterole.jsp");
+		
+	} else if (command.equals("updaterole")) {
+		int myno = Integer.parseInt(request.getParameter("myno"));
+		String myrole = request.getParameter("myrole");
+		
+		int res = biz.updateRole(myno, myrole);
+		if (res > 0) {
+%>
+		<script type="text/javascript">
+			alert("등급 변경 성공");
+			location.href="logincontroller.jsp?command=listen";
+		</script>
+<%
+		} else {
+%>
+		<script type="text/javascript">
+			alert("등급 변경 성공");
+			location.href="logincontroller.jsp?command=updateform&myno=<%=myno %>";
+		</script>
+<%
+		}
+%>
+<%
+	}  else if (command.equals("registform")) {
+		response.sendRedirect("regist.jsp");
+	} else if (command.equals("idchk")) {
+		String myid = request.getParameter("myid");
+		
+		MYMemberDto dto = biz.idCheck(myid);
+		
+		boolean idnotused = true;
+		
+		if (dto.getMyid() != null) {
+			idnotused = false;
+		}
+		response.sendRedirect("idchk.jsp?idnotused="+idnotused);
+	} else if (command.equals("insertuser")) {
+		String myid = request.getParameter("myid");
+		String mypw = request.getParameter("mypw");
+		String myname = request.getParameter("myname");
+		String myaddr = request.getParameter("myaddr");
+		String myphone = request.getParameter("myphone");
+		String myemail = request.getParameter("myemail");
+		
+		MYMemberDto dto = new MYMemberDto();
+		dto.setMyid(myid);
+		dto.setMypw(mypw);
+		dto.setMyname(myname);
+		dto.setMyaddr(myaddr);
+		dto.setMyphone(myphone);
+		dto.setMyemail(myemail);
+		
+		int res = biz.insertUser(dto);
+		
+		if (res > 0) {
+%>
+		<script type="text/javascript">
+			alert("회원가입이 완료 되었습니다.");
+			location.href="./index.html";
+		</script>
+<%
+		} else {
+%>
+		<script type="text/javascript">
+			alert("회원가입이 실패 되었습니다.");
+			location.href="./logincontroller.jsp?command=registform";
+		</script>
+<%
+		}
 	}
 %>
 

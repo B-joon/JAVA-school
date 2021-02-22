@@ -100,7 +100,34 @@ public class MYMemberDao {
 	}
 	// 3. 회원 등급 조정
 	public int updateRole(int myno, String myrole) {
-		return 0;
+		
+		Connection con = getConnection();
+		
+		String sql = " UPDATE MYMEMBER "
+				+ " SET MYROLE = ? "
+				+ " WHERE MYNO = ? ";
+		
+		PreparedStatement pstm = null;
+		int res = 0;
+		
+		try {
+			pstm = con.prepareStatement(sql);
+			pstm.setString(1, myrole);
+			pstm.setInt(2, myno);
+			
+			res = pstm.executeUpdate();
+			if (res > 0) {
+				commit(con);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(pstm);
+			close(con);
+		}
+		
+		return res;
 	}
 	
 	/*
@@ -159,15 +186,106 @@ public class MYMemberDao {
 	}
 	// 2. 중복체크
 	public MYMemberDto idCheck(String myid) {
-		return null;
+		
+		Connection con = getConnection();
+		
+		String sql = " SELECT MYNO, MYID, MYPW, MYNAME, MYADDR, MYPHONE, MYEMAIL, MYENABLED, MYROLE "
+				+ " FROM MYMEMBER "
+				+ " WHERE MYID = ? ";
+		
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		MYMemberDto dto = new MYMemberDto();
+		
+		try {
+			pstm = con.prepareStatement(sql);
+			pstm.setString(1, myid);
+			
+			rs = pstm.executeQuery();
+			while (rs.next()) {
+				dto.setMyno(rs.getInt(1));
+				dto.setMyid(rs.getString(2));
+				dto.setMypw(rs.getString(3));
+				dto.setMyname(rs.getString(4));
+				dto.setMyaddr(rs.getString(5));
+				dto.setMyphone(rs.getString(6));
+				dto.setMyemail(rs.getString(7));
+				dto.setMyenable(rs.getString(8));
+				dto.setMyrole(rs.getString(9));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rs, pstm, con);
+		}
+		
+		return dto;
 	}
 	// 3. 회원가입
 	public int insertUser(MYMemberDto dto) {
-		return 0;
+		
+		Connection con = getConnection();
+		
+		String sql = " INSERT INTO MYMEMBER "
+				+ " VALUES(MYMEMBERSEQ.NEXTVAL, ?, ?, ?, ?, ?, ?, 'Y', 'USER') ";
+		
+		PreparedStatement pstm = null;
+		int res = 0;
+		
+		try {
+			pstm = con.prepareStatement(sql);
+			pstm.setString(1, dto.getMyid());
+			pstm.setString(2, dto.getMypw());
+			pstm.setString(3, dto.getMyname());
+			pstm.setString(4, dto.getMyaddr());
+			pstm.setString(5, dto.getMyphone());
+			pstm.setString(6, dto.getMyemail());
+			
+			res = pstm.executeUpdate();
+			if (res > 0) {
+				commit(con);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(pstm);
+			close(con);
+		}
+		
+		return res;
 	}
 	// 4. 정보 조회
 	public MYMemberDto selectUser(int myno) {
-		return null;
+		
+		Connection con = getConnection();
+		
+		String sql = " SELECT MYNO, MYID, MYPW, MYNAME, MYADDR, MYPHONE, MYEMAIL, MYENABLED, MYROLE "
+				+ " FROM MYMEMBER "
+				+ " WHERE MYNO = ? ";
+		
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		MYMemberDto dto = null;
+		
+		try {
+			pstm = con.prepareStatement(sql);
+			pstm.setInt(1, myno);
+			rs = pstm.executeQuery();
+			while (rs.next()) {
+				dto = new MYMemberDto(rs.getInt(1), rs.getString(2), rs.getString(3), 
+						rs.getString(4), rs.getString(5), rs.getString(6),
+						rs.getString(7), rs.getString(8), rs.getString(9));
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rs, pstm, con);
+		}
+		
+		return dto;
 	}
 	// 5. 정보 수정
 	public int updateUser(MYMemberDto dto) {

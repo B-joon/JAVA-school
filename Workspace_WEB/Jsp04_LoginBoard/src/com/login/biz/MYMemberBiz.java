@@ -20,20 +20,20 @@ public class MYMemberBiz {
 		return dao.selectEnabledUser();
 	}
 	public int updateRole(int myno, String myrole) {
-		return 0;
+		return dao.updateRole(myno, myrole);
 	}
 	
 	public MYMemberDto login(String myid, String mypw) {
 		return dao.login(myid, mypw);
 	}
 	public MYMemberDto idCheck(String myid) {
-		return null;
+		return dao.idCheck(myid);
 	}
 	public int insertUser(MYMemberDto dto) {
-		return 0;
+		return dao.insertUser(dto);
 	}
 	public MYMemberDto selectUser(int myno) {
-		return null;
+		return dao.selectUser(myno);
 	}
 	public int updateUser(MYMemberDto dto) {
 		return 0;
