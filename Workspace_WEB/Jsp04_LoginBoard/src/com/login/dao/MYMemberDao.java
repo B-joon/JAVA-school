@@ -289,10 +289,66 @@ public class MYMemberDao {
 	}
 	// 5. 정보 수정
 	public int updateUser(MYMemberDto dto) {
-		return 0;
+		
+		Connection con = getConnection();
+		
+		String sql = " UPDATE MYMEMBER "
+				+ " SET MYPW = ?, MYNAME = ?, MYADDR = ?, MYPHONE = ?, MYEMAIL = ?"
+				+ " WHERE MYNO = ? ";
+		
+		PreparedStatement pstm = null;
+		int res = 0;
+		
+		try {
+			pstm = con.prepareStatement(sql);
+			pstm.setString(1, dto.getMypw());
+			pstm.setString(2, dto.getMyname());
+			pstm.setString(3, dto.getMyaddr());
+			pstm.setString(4, dto.getMyphone());
+			pstm.setString(5, dto.getMyemail());
+			pstm.setInt(6, dto.getMyno());
+			
+			res = pstm.executeUpdate();
+			if (res > 0) {
+				commit(con);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(pstm, con);
+		}
+		
+		return res;
 	}
 	// 6. 회원 탈퇴
 	public int deleteUser(int myno) {
-		return 0;
+		
+		Connection con = getConnection();
+		
+		String sql = " UPDATE MYMEMBER "
+				+ " SET MYENABLED = 'N' "
+				+ " WHERE MYNO = ? ";
+		
+		PreparedStatement pstm = null;
+		int res = 0;
+		
+		try {
+			pstm = con.prepareStatement(sql);
+			pstm.setInt(1, myno);
+			
+			res = pstm.executeUpdate();
+			if (res > 0) {
+				commit(con);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(pstm);
+			close(con);
+		}
+		
+		return res;
 	}
 }

@@ -36,9 +36,9 @@ public class MYMemberBiz {
 		return dao.selectUser(myno);
 	}
 	public int updateUser(MYMemberDto dto) {
-		return 0;
+		return dao.updateUser(dto);
 	}
 	public int deleteUser(int myno) {
-		return 0;
+		return dao.deleteUser(myno);
 	}
 }
