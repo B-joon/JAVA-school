@@ -69,9 +69,10 @@
 		</C:forEach>
 	</table>
 	
-	<C:forEach var="i" begin="2" end="10" step="1">
-		<C:forEach var="i" begin="1" end="10" step="1">
-			${i }
+	<C:forEach var="i" begin="2" end="9" step="1">
+		${i } 단<br>
+		<C:forEach var="j" begin="1" end="9" step="1">
+			${i } * ${j } = ${i * j } <br>
 		</C:forEach>
 	</C:forEach>
 	<!-- 구구단 출력 -->
