@@ -48,10 +48,13 @@ public class BikeController extends HttpServlet {
 			}
 			String data = request.getParameter("mydata");			// json형태의 문자열을 json 객체로 변환 (string -> json object)
 			
+			// JsonElement : JsonObject, JsonArray, JsonPrimitive, JsonNull 값들을 모두 포함
 			JsonElement element = JsonParser.parseString(data);		// json형태의 문자열을 json 객체로 변환 (string -> json object)
-			JsonObject jsonData = element.getAsJsonObject();		// JsonElement는 JsonObject, JsonPrimitive, JsonArray, JsonNull 이 
-																	// 4가지의 부모 클래스로 추상클래스로 정의된다.
-			
+			// JsonObject : key-value pair ({"String" : JsonElement} 형식)
+			JsonObject jsonData = element.getAsJsonObject();		// JsonElement는 JsonObject, JsonPrimitive, JsonArray, JsonNull 이 4가지의 부모 클래스로 추상클래스로 정의된다. 
+			// JsonObject jsondata = JsonParse.parseString(data).getAsJsonObject();
+																	
+			// records에 해당하는 값들을 저장
 			JsonElement records = jsonData.get("records");			// bike.json에서 가져온다
 			JsonArray recordsArray = records.getAsJsonArray();
 			
@@ -59,6 +62,14 @@ public class BikeController extends HttpServlet {
 			JsonArray resultArray = new JsonArray();
 			
 			for (int i = 0; i < recordsArray.size(); i++) {
+				
+				/*
+				 * JsonElement tempElement = recodsArray.get(i);
+				 * JsonObject tempObject = tempElement.getAsJsonObject();
+				 * JsonElement nameElement = tempObject.get("자전거대여소명");
+				 * String name = nameElement.getAsString();
+				 */
+				
 				String name = recordsArray.get(i).getAsJsonObject().get("자전거대여소명").getAsString();
 				String addr = null;
 				if (recordsArray.get(i).getAsJsonObject().get("소재지도로명주소") != null) {
@@ -75,7 +86,7 @@ public class BikeController extends HttpServlet {
 				BikeDto dto = new BikeDto(name, addr, latitude, longitude, bike_count);
 				list.add(dto);
 				
-				Gson gson = new Gson();		// 자바 오브젝트를 쉽게 JSON으로 변환
+				Gson gson = new Gson();		// 자바 오브젝트를 쉽게 JSON으로 변환 or JSON을 자바 오브젝트로 변환
 				String jsonString = gson.toJson(dto);		// 인스턴스가 가리키는 문자열을 반환 
 				resultArray.add(JsonParser.parseString(jsonString));	 // jsonString 을 문자열로 변환하고 json으로 변환한걸 추가
 				// json객체를 object >> jsonString으로 변환
