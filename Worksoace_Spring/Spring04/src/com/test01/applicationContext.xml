@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+	<!-- <bean id="today" class="java.util.Date" ></bean>
+
+	<bean id="myclass" class="com.test01.MyClass"></bean>
+	Myclass myclass = new Myclass();
+		myclass.prn();
+	 -->
+	<bean id="today" class="java.util.Date" lazy-init="false">
+
+	</bean>
+	<bean id="end" class="java.util.Date">
+		<constructor-arg name="year" value="121"></constructor-arg>
+		<constructor-arg name="month" value="6"></constructor-arg>
+		<constructor-arg name="date" value="14"></constructor-arg>
+	</bean>
+	<bean id="myclass" class="com.test01.MyClass" lazy-init="true"></bean>
+
+	<bean id="beanTest" class="com.test01.BeanTest">
+		<!-- 아무것도 안넣으면 기본 생성자를 불러올 수 있다!! -->
+		<!-- 1. param 1개 짜리 생성자 
+			객체를 값으로 연결해 줄때는 value가 아니라 ref를 사용 -->
+		<constructor-arg ref="today"></constructor-arg>
+		<!-- 2. setMyclass호출 ref를 통해 객체를 전달해줘야 Bean 테스트의 setMyclass(파라미터)< 여기에 
+			들어갈 수있따 -->
+			<!-- value="값이 저장" ref="setMyclass(파라미터)" -->
+		<property name="myclass" ref="myclass"></property>
+		<!-- 3. setDate(Date date) 호출 -->
+		<property name="date" ref="today"></property>
+		<!-- 4. setNumber(int num) 호출 : 세터 이름이 setNumber 이기때문에 name 속성에 number가 
+			들어간다
+			set을 사용할 때는 name속성에 타입이 들어간다. -->
+		<property name="number">
+			<value type="short">50</value>
+
+		</property>
+		<!-- 5. setArray(String[] arr) 호출 -->
+		<property name="array">
+			<array>
+				<value>봉구스</value>
+				<value>봉슈</value>
+				<value>봉준</value>
+			</array>
+		</property>
+		<!-- 6. setList(List<String> list )호출 -->
+		<property name="list">
+			<list>
+				<value>봄</value>
+				<value>여름</value>
+				<value>가을</value>
+				<value>겨울</value>
+			</list>
+		</property>
+		<!-- 7. setSet(Set<String> set) 호출 -->
+		<property name="set">
+			<set>
+				<value>1</value>
+				<value>1</value>
+				<value>2</value>
+				<value>2</value>
+				<value>3</value>
+			
+			</set>
+		
+		</property>
+		<!-- setMap(Map<Integer,String> map) 호출 -->
+		<property name="map">
+			<map>
+				<entry>
+					<key><value>1</value></key>
+					<value>봄</value>
+				</entry>
+				<entry>
+					<key><value>2</value></key>
+					<value>여름</value>
+				</entry>
+			
+				<entry key="3" value="가을"></entry>
+				<entry key="4" value="겨울"></entry>
+			
+			
+			</map>
+		
+		</property>
+		<!-- setScore(List<Score> list)호출 : inner bean 을 사용 -->
+		<property name="score">
+			<list>
+				<bean class="com.test01.Score">
+					<property name="name" value="bong"></property>
+					<property name="kor" value="95"></property>
+					<property name="eng" value="95"></property>
+					<property name="math" value="95"></property>
+				
+				</bean>
+				<ref bean="i"/>
+			</list>
+		
+		</property>
+
+	</bean>
+	<bean id="i" class="com.test01.Score">
+		<constructor-arg value="아이유"></constructor-arg>
+		<constructor-arg value="70"></constructor-arg>
+		<constructor-arg value="70"></constructor-arg>
+		<constructor-arg value="70"></constructor-arg>
+	
+	</bean>
+</beans>
