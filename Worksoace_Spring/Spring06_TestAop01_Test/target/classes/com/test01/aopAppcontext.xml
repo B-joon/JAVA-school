@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.3.xsd
+		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd">
+
+	<aop:aspectj-autoproxy/>
+	
+	<bean id="myAdvice" class="com.test01.MyAdvice"></bean>
+	<bean id="person01" class="com.test01.Person"></bean>
+	<bean id="person02" class="com.test01.Person"></bean>
+	
+	<!-- 
+	<aop:config>
+		<aop:aspect ref="myAdvice">
+			<aop:pointcut expression="execution(public * sayName(..))" id="saypoint"/>
+			<aop:before method="beforeSaying" pointcut-ref="saypoint"/>
+			<aop:before method="afterSaying" pointcut-ref="saypoint"/>
+			<aop:before method="afterReturnSaying" pointcut-ref="saypoint"/>
+		</aop:aspect>
+	</aop:config>
+	-->
+</beans>
