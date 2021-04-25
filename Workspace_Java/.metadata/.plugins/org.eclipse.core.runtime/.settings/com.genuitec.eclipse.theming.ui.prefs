@@ -1,9 +1,10 @@
 applyBackground=false
-approved.defs.file.last.changed.time=1599254320000
+approved.defs.file.last.changed.time=1617837191000
 configurationInstallLocation=/C\:/Users/kas78/eclipse/jee-2020-09/eclipse/
 eclipse.preferences.version=1
 iconcolormode=primary
-last.download.attempt.time=1606807550822
-lastConfiguration=1606807543314
+includeThemingInOomph=false
+last.download.attempt.time=1618221668618
+lastConfiguration=1618221654210
 newinstall=true
 workbench.theme=Dark Gray

@@ -39,13 +39,63 @@
 		margin: 1px;
 		background-color: skyblue;
 	}
+	.preview {
+		position: absolute;
+		top: -30px;
+		left: 10px;
+		background-color: skyblue;
+		width: 40px;
+		height: 40px;
+		text-align: center;
+		line-height: 40px;
+		border-radius: 40px 40px 40px 1px;
+	}
 </style>
+
+<script type="text/javascript" src="http://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
+	function isTwo(n) {
+		return (n.length < 2)? "0"+n : n;
+	}
+	$(function () {
+		$(".countview").hover(function() {
+			// handle in
+			var countView = $(this);
+			var year = $(".y").text().trim();
+			var month = $(".m").text().trim();
+			var date = countView.text().trim();
+			var yyyyMMdd = year + isTwo(month) + isTwo(date);
+			
+			$.ajax({
+				type: "post",
+				url: "count.do?id=kh&yyyyMMdd="+yyyyMMdd,
+				dataType: "json",
+				async: false,
+				success: function(msg){
+					var count = msg.calcount;
+					countView.after("<div class='preview'>" + count + "</div>");
+				},
+				error: function(){
+					alert("통신 실패")
+				}
+			});
+		},
+		function() {
+			// handle out
+			$(".preview").remove();
+		});
+	});
+</script>
 </head>
 <body>
 <%
+	// 표준 시간대의 값을 객체로 가져와서 cal에 담아준다.
+	// 현재시간
+	// 생성자가 private이어서 객체를 만들어 주는 변수를 만들어 줘야함 (new 사용 불가) / 싱글톤패턴
 	Calendar cal = Calendar.getInstance();
 
 	int year = cal.get(Calendar.YEAR);
+	// 월이 0부터 시작하기 때문에 1을 더해준다.
 	int month = cal.get(Calendar.MONTH) + 1;
 	
 	String paramYear = request.getParameter("year");
@@ -64,7 +114,8 @@
 		month = 12;
 		year--;
 	}
-	
+	// 달력의 필드 값을 설정한다. YEAR, MONTERE 및 DAY_OF_MONT. 다른 캘린더의 이전 값
+	// year, month, date를 설정 
 	cal.set(year, month-1, 1);
 	
 	int dayOfWeek = cal.get(Calendar.DAY_OF_WEEK);
@@ -82,8 +133,8 @@
 			<a href="calendar.jsp?year=<%=year-1%>&month=<%=month%>">◁</a>
 			<a href="calendar.jsp?year=<%=year%>&month=<%=month-1%>">◀</a>
 			
-			<span class=""><%=year %></span>년
-			<span class=""><%=month %></span>월
+			<span class="y"><%=year %></span>년
+			<span class="m"><%=month %></span>월
 			
 			<a href="calendar.jsp?year=<%=year%>&month=<%=month+1%>">▶</a>
 			<a href="calendar.jsp?year=<%=year+1%>&month=<%=month%>">▷</a>
@@ -93,13 +144,14 @@
 		</tr>
 		<tr>
 <%
+		// 앞공백 설정
 		for (int i = 0; i < dayOfWeek-1; i++) {
 			out.print("<td></td>");
 		}
 		for (int i = 1; i <= lastDay; i++) {
 %>
 			<td>
-				<a href="cal.do?command=list&year=<%=year %>&month=<%=month %>&date=<%=i %>" style="color: <%=Util.fontColor(i, dayOfWeek) %>"><%=i %></a>
+				<a class="countview" href="cal.do?command=list&year=<%=year %>&month=<%=month %>&date=<%=i %>" style="color: <%=Util.fontColor(i, dayOfWeek) %>"><%=i %></a>
 				<a href="insert.jsp?year=<%=year%>&month=<%=month%>&date=<%=i%>&lastDay=<%=lastDay%>">
 					<img alt="" src="image/pen.png" style="width: 10px; height: 10px">
 				</a>
@@ -114,6 +166,8 @@
 					out.print("<tr></tr>");
 			}
 		}
+		// 뒷공백 설정
+		// 빈칸이 7개가 생기면 제거하기위해 7을 빼줌
 		for (int i = 0; i < (7-(dayOfWeek - 1 + lastDay)%7)%7; i++) {
 			out.print("<td></td>");
 		}

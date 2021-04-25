@@ -128,4 +128,35 @@ public class CalDao {
 		
 		return list;
 	}
+	
+	public int getCalViewCount(String id, String yyyyMMdd) {
+		
+		Connection con = getConnection();
+		
+		String sql = " SELECT COUNT(*) "
+				+ " FROM CALBOARD "
+				+ " WHERE ID = ? "
+				+ " AND SUBSTR(MDATE, 1, 8) = ? ";
+		
+		PreparedStatement pstm = null;
+		ResultSet rs = null;
+		int count = 0;
+		
+		try {
+			pstm = con.prepareStatement(sql);
+			pstm.setString(1, id);
+			pstm.setString(2, yyyyMMdd);
+			
+			rs = pstm.executeQuery();
+			while (rs.next()) {
+				count = rs.getInt(1);
+			}
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(rs, pstm, con);
+		}
+		return count;
+	}
 }

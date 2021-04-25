@@ -1,2 +1,17 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<typeInfoHistroy/>
+<typeInfoHistroy>
+    <typeInfo handle="=Java13_Class/src&lt;com.aaa{AAA.java[AAA" modifiers="1" timestamp="1607393171852"/>
+    <typeInfo handle="=Java13_Class/src&lt;com.test02{Animal.java[Animal" modifiers="1" timestamp="1607398055802"/>
+    <typeInfo handle="=Java14_Abstract_Interface/src&lt;com.test01{Animal.java[Animal" modifiers="1025" timestamp="1607483550195"/>
+    <typeInfo handle="=Java14_Abstract_Interface/src&lt;com.test02{Animal.java[Animal" modifiers="1025" timestamp="1607484316315"/>
+    <typeInfo handle="=Java14_Abstract_Interface/src&lt;com.test03{Animal.java[Animal" modifiers="513" timestamp="1607488567230"/>
+    <typeInfo handle="=Java14_Abstract_Interface/src&lt;com.test04{Animal.java[Animal" modifiers="1025" timestamp="1607489879330"/>
+    <typeInfo handle="=Java14_Abstract_Interface/src&lt;com.test04{Bird.java[Bird" modifiers="513" timestamp="1607489398941"/>
+    <typeInfo handle="=Java14_Abstract_Interface/src&lt;com.test05{TV.java[TV" modifiers="513" timestamp="1607490537876"/>
+    <typeInfo handle="=Java14_Abstract_Interface/src&lt;com.test07{Profile.java[Profile" modifiers="1" timestamp="1607561411603"/>
+    <typeInfo handle="=Java14_Abstract_Interface/src&lt;com.test07{Job.java[Job" modifiers="513" timestamp="1607562462024"/>
+    <typeInfo handle="=Java14_Abstract_Interface/src&lt;com.test07{Display.java[Display" modifiers="513" timestamp="1607562979025"/>
+    <typeInfo handle="=DBTest04/src&lt;com.dao{MemberDao.java[MemberDao" modifiers="513" timestamp="1610437441271"/>
+    <typeInfo handle="=DBTest04/src&lt;com.biz{MemberBiz.java[MemberBiz" modifiers="513" timestamp="1610435228965"/>
+    <typeInfo handle="=Java200_reminder/src&lt;com.j05{Animal.java[Animal" modifiers="1" timestamp="1612664901132"/>
+</typeInfoHistroy>

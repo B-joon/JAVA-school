@@ -153,7 +153,7 @@ public class DayOfCalender {
 //		System.out.println();
 //		System.out.println("===================================================");
 //
-//		sc.close();
+		sc.close();
 	}
 
 

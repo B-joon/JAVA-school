@@ -1,7 +1,5 @@
 package com.mvc.dao;
 
-import static com.mvc.db.JDBCTemplate.*;
-
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
@@ -9,7 +7,10 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
+import static com.mvc.db.JDBCTemplate.*;
 import com.mvc.dto.MVCBoardDto;
+
+import oracle.net.aso.r;
 
 public class MVCBoardDaoImpl implements MVCBoardDao {
 
@@ -39,9 +40,7 @@ public class MVCBoardDaoImpl implements MVCBoardDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
-			close(rs);
-			close(pstm);
-			close(con);
+			close(rs, pstm, con);
 		}
 		
 		return list;
@@ -72,9 +71,7 @@ public class MVCBoardDaoImpl implements MVCBoardDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
-			close(rs);
-			close(pstm);
-			close(con);
+			close(rs, pstm, con);
 		}
 		
 		return dto;
@@ -102,8 +99,7 @@ public class MVCBoardDaoImpl implements MVCBoardDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
-			close(pstm);
-			close(con);
+			close(pstm, con);
 		}
 		
 		return res;
@@ -131,8 +127,7 @@ public class MVCBoardDaoImpl implements MVCBoardDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
-			close(pstm);
-			close(con);
+			close(pstm, con);
 		}
 		
 		return res;
@@ -158,8 +153,7 @@ public class MVCBoardDaoImpl implements MVCBoardDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
-			close(pstm);
-			close(con);
+			close(pstm, con);
 		}
 		
 		return res;
@@ -181,6 +175,7 @@ public class MVCBoardDaoImpl implements MVCBoardDao {
 				pstm.setString(1, seqs[i]);
 				pstm.addBatch();
 			}
+			
 			cnt = pstm.executeBatch();
 			
 			for (int i = 0; i < cnt.length; i++) {
@@ -188,17 +183,15 @@ public class MVCBoardDaoImpl implements MVCBoardDao {
 					res++;
 				}
 			}
+			
 			if (seqs.length == res) {
 				commit(con);
 			}
-			
-			
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
-			close(pstm);
-			close(con);
+			close(pstm, con);
 		}
 		
 		return res;
