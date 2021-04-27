@@ -12,7 +12,7 @@ public class Lotto {
 			Lotto[i] = (int)(Math.random()*45) + 1;
 			//로또 번호 생성 및 저장
 			
-			for (int j = i; j < i; j++) {
+			for (int j = 0; j < i; j++) {
 				if (Lotto[i] == Lotto[j]) {
 					i--;
 					// 중복제거
@@ -25,7 +25,7 @@ public class Lotto {
 			System.out.print(Lotto[i] + " ");
 			//로또번호 출력
 		}
-
+		
+		
 	}
-
 }

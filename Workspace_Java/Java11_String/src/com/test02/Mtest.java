@@ -4,7 +4,7 @@ public class Mtest {
 
 	public static void main(String[] args) {
 		
-//		sTest();
+		sTest();
 		sBufferTest();
 
 	}
@@ -42,7 +42,6 @@ public class Mtest {
 		StringBuffer sb = new StringBuffer();
 		// method chaining
 		sb.append("안녕하세요").append(" 저는 ").append("최봉준 입니다.");
-		
 		System.out.println(sb.hashCode());
 		System.out.println(sb);
 		

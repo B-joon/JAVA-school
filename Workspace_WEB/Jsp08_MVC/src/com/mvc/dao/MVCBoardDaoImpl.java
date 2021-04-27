@@ -31,7 +31,7 @@ public class MVCBoardDaoImpl implements MVCBoardDao {
 				dto.setWriter(rs.getString(2));
 				dto.setTitle(rs.getString(3));
 				dto.setContent(rs.getString(4));
-				dto.setRegDate(rs.getDate(5));
+				dto.setDate(rs.getDate(5));
 				
 				list.add(dto);
 			}
@@ -39,7 +39,9 @@ public class MVCBoardDaoImpl implements MVCBoardDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
-			close(rs, pstm, con);
+			close(rs);
+			close(pstm);
+			close(con);
 		}
 		
 		return list;
@@ -57,21 +59,20 @@ public class MVCBoardDaoImpl implements MVCBoardDao {
 		try {
 			pstm = con.prepareStatement(SELECT_ONE_SQL);
 			pstm.setInt(1, seq);
+			
 			rs = pstm.executeQuery();
 			while (rs.next()) {
 				dto.setSeq(rs.getInt(1));
 				dto.setWriter(rs.getString(2));
 				dto.setTitle(rs.getString(3));
 				dto.setContent(rs.getString(4));
-				dto.setRegDate(rs.getDate(5));
+				dto.setDate(rs.getDate(5));
 			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
-			close(rs);
-			close(pstm);
-			close(con);
+			close(rs, pstm, con);
 		}
 		
 		return dto;
@@ -99,7 +100,8 @@ public class MVCBoardDaoImpl implements MVCBoardDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
-			close(pstm, con);
+			close(pstm);
+			close(con);
 		}
 		
 		return res;
@@ -117,7 +119,7 @@ public class MVCBoardDaoImpl implements MVCBoardDao {
 			pstm = con.prepareStatement(UPDATE_SQL);
 			pstm.setString(1, dto.getTitle());
 			pstm.setString(2, dto.getContent());
-			pstm.setInt(3, dto.getSeq());
+			pstm.setInt(1, dto.getSeq());
 			
 			res = pstm.executeUpdate();
 			if (res > 0) {
@@ -127,8 +129,7 @@ public class MVCBoardDaoImpl implements MVCBoardDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
-			close(pstm);
-			close(con);
+			close(pstm, con);
 		}
 		
 		return res;
@@ -161,9 +162,40 @@ public class MVCBoardDaoImpl implements MVCBoardDao {
 	}
 
 	@Override
-	public int mutiDelete(String[] seqs) {
-		// TODO Auto-generated method stub
-		return 0;
+	public int multiDelete(String[] seqs) {
+		
+		Connection con = getConnection();
+		
+		PreparedStatement pstm = null;
+		int res = 0;
+		
+		int[] cnt = null;
+		
+		try {
+			pstm = con.prepareStatement(DELETE_SQL);
+			for (int i = 0; i < seqs.length; i++) {
+				pstm.setString(1, seqs[i]);
+				pstm.addBatch();
+			}
+			cnt = pstm.executeBatch();
+			
+			for (int i = 0; i < cnt.length; i++) {
+				if (cnt[i] == -2) {
+					res++;
+				}
+			}
+			if (seqs.length == res) {
+				commit(con);
+			}
+			
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			close(pstm, con);
+		}
+		
+		return res;
 	}
 
 }

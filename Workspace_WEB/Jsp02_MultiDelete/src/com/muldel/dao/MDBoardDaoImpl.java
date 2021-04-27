@@ -38,9 +38,10 @@ public class MDBoardDaoImpl implements MDBoardDao {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} finally {
-			close(rs);
-			close(pstm);
-			close(con);
+//			close(rs);
+//			close(pstm);
+//			close(con);
+			close(rs, pstm, con);
 		}
 		
 		return list;

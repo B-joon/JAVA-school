@@ -15,7 +15,7 @@
 <%
 	MVCBoardDto dto = (MVCBoardDto) request.getAttribute("dto");
 %>
-	<form action="./controller.jsp">
+	<form action="./controller.jsp" method="post">
 		<input type="hidden" name="command" value="updateres">
 		<input type="hidden" name="seq" value="<%=dto.getSeq() %>">
 		<table border="1">
@@ -25,7 +25,7 @@
 			</tr>
 			<tr>
 				<th>제목</th>
-				<td><input type="text" value="<%=dto.getTitle() %>" name="title"></td>
+				<td><input type="text" name="title" value="<%=dto.getTitle() %>"></td>
 			</tr>
 			<tr>
 				<th>내용</th>

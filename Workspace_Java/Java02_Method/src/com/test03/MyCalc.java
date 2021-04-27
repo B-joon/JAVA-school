@@ -11,14 +11,11 @@ public class MyCalc {
 
 		return result;
 	}
-
 	// 빼기
 	public static void sub(int i, int j) {
 		int result = i - j;
 		System.out.printf("%d - %d = %d\n", i, j, result);
-
 	}
-
 	// 곱하기
 	public static double mul(double d1, double d2) {
 
@@ -26,7 +23,6 @@ public class MyCalc {
 
 		return result;
 	}
-
 	// 나누기
 	public void div(int i, int j) {
 		// '/' : 나눈 값
@@ -42,13 +38,9 @@ public class MyCalc {
 	public static void main(String[] args) {
 
 		// 접근제한자 메모리영역 리턴타입 메소드명 (파라미터)
-
 		// 더하기
-
 		// 빼기
-
 		// 곱하기
-
 		// 나누기
 
 	}

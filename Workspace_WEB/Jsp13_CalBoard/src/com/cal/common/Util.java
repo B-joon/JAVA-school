@@ -1,5 +1,6 @@
 package com.cal.common;
 
+import java.sql.Connection;
 import java.sql.Timestamp;
 import java.text.SimpleDateFormat;
 import java.util.List;
@@ -20,7 +21,7 @@ public class Util {
 				+ mdate.substring(6, 8) + " "
 				+ mdate.substring(8, 10) + ":"
 				+ mdate.substring(10) + ":00";
-		
+		// 문자열의 yyyy, MM, dd, HH, mm을 찾아서 각 위치에 맞게 값을 설정
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy년MM월dd일 HH시mm분");
 		Timestamp tm = Timestamp.valueOf(temp);
 		todate = sdf.format(tm);

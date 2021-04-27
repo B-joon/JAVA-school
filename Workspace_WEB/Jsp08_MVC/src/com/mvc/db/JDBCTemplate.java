@@ -13,6 +13,7 @@ public class JDBCTemplate {
 		try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");
 		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
@@ -70,6 +71,7 @@ public class JDBCTemplate {
 		try {
 			con.commit();
 		} catch (SQLException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}
@@ -77,6 +79,7 @@ public class JDBCTemplate {
 		try {
 			con.rollback();
 		} catch (SQLException e) {
+			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 	}

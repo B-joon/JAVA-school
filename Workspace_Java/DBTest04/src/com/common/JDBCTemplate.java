@@ -6,9 +6,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-
+// DB 연결, 연결 해제, 저장(commit), 취소(rollback)
 public class JDBCTemplate {
-	
+	// 메소드는 스태틱으로 : 변하면 안돼서 정적인 메소드를 만든다.
 	public static Connection getConnection() {
 		
 		try {

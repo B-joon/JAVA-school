@@ -15,6 +15,14 @@
 <title>Insert title here</title>
 	<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
 	<script type="text/javascript">
+	
+		function allCheck(bool) {
+			var chks = document.getElementsByName("chk");
+			for (var i = 0; i < chks.length; i++) {
+				chks[i].checked = bool
+			}
+		}
+	
 		$(function() {
 			$("#muldelform").submit(function() {
 				if($("#muldelform").length == 0) {
@@ -36,7 +44,7 @@
 	
 	<h1>목록</h1>
 	
-	<form action="./muldel.jsp" method="post" id="muldelform">
+	<form action="./muldel.jsp" method="get" id="muldelform">
 		<table border="1">
 			<col width="25px">
 			<col width="50px">
@@ -44,7 +52,7 @@
 			<col width="300px">
 			<col width="100px">
 			<tr>
-				<th><input type="checkbox" name="all" onclick="allChk(this.checked);"></th>
+				<th><input type="checkbox" name="all" onclick="allCheck(this.checked);"></th>
 				<th>번호</th>
 				<th>작성자</th>
 				<th>내용</th>

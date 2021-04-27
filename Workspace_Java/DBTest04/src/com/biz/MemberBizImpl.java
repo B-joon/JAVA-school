@@ -5,7 +5,7 @@ import java.util.List;
 import com.dao.MemberDao;
 import com.dao.MemberDaoImpl;
 import com.dto.MemberDto;
-
+// biz(business logic) : 연산 / 처리
 public class MemberBizImpl implements MemberBiz {
 	
 	private MemberDao dao = new MemberDaoImpl();
@@ -24,7 +24,7 @@ public class MemberBizImpl implements MemberBiz {
 
 	@Override
 	public int insert(MemberDto dto) {
-		
+		dto.setM_gender(dto.getM_gender().toUpperCase());
 		return dao.insert(dto);
 	}
 
