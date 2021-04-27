@@ -28,8 +28,8 @@
 			</tr>
 			<tr>
 				<td colspan="2" align="right">
-					<input type="submit" value="작성">
-					<input type="button" value="취소" onclick="location.href='./controller.jsp?command=list'">
+					<input type="submit" value="저장">
+					<input type="button" value="취소" onclick="location.href='controller.jsp?command=list'">
 				</td>
 			</tr>
 		</table>

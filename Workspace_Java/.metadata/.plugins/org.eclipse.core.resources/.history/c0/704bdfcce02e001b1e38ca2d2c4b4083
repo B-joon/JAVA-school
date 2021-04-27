@@ -1,0 +1,20 @@
+package com.test01;
+
+public class MTest {
+
+	public static void main(String[] args) {
+		
+		FruitBasket bananaBasket = new FruitBasket();
+		bananaBasket.basketSetting("바나나", 10);
+		
+		bananaBasket.basketSize = 15;
+		System.out.println(bananaBasket.basketSize);
+		
+		FruitBasket appBasket = new FruitBasket();
+		appBasket.basketSetting("사과", 21);
+		System.out.println(appBasket.basketSize);
+
+	}
+	
+
+}

@@ -16,10 +16,10 @@ public class Mtest {
 		// 생성해서 사용한다.
 		
 		// equals는 주소값이 아닌 값을 비교한다.
-		String s = "Hello";
-		System.out.println(s + 1 + 2);  // Hello12
-		System.out.println(1 + 2 + s);  // 3Hello
-		System.out.println(s); // Hello
+//		String s = "Hello";
+//		System.out.println(s + 1 + 2);  // Hello12
+//		System.out.println(1 + 2 + s);  // 3Hello
+//		System.out.println(s); // Hello
 //		
 ////		s = 1 + 2 + s;
 ////		System.out.println(s);
@@ -35,8 +35,8 @@ public class Mtest {
 //		
 //		System.out.println(s == h);
 //		
-		String newS = new String("Hello");
-		System.out.println(newS);
+//		String newS = new String("Hello");
+//		System.out.println(newS);
 //		
 //		System.out.println(s == newS);
 //		

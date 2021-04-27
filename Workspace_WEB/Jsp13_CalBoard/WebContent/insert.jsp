@@ -67,7 +67,7 @@
 					</select>일
 					<select name="hour">
 <%
-						for (int i = 0; i < 24; i++) {
+						for (int i = 0; i <= 24; i++) {
 %>
 							<option value="<%=i%>" <%=(hour==1)?"selected":"" %>><%=i %></option>
 <%
@@ -76,7 +76,7 @@
 					</select>시
 					<select name="min">
 <%
-						for (int i = 0; i < 60; i++) {
+						for (int i = 0; i <= 60; i++) {
 %>
 							<option value="<%=i%>" <%=(min==1)?"selected":"" %>><%=i %></option>
 <%

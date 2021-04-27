@@ -15,7 +15,7 @@ public interface MVCBoardDao {
 	String INSERT_SQL = " INSERT INTO MVCBOARD "
 			+ " VALUES(MVCBOARDSEQ.NEXTVAL, ?, ?, ?, SYSDATE) ";
 	String UPDATE_SQL = " UPDATE MVCBOARD "
-			+ " SET TITLE = ?, CONTENT = ? "
+			+ " SET TITLE = ?, CONTENT = ?"
 			+ " WHERE SEQ = ? ";
 	String DELETE_SQL = " DELETE FROM MVCBOARD "
 			+ " WHERE SEQ = ? ";
@@ -25,5 +25,5 @@ public interface MVCBoardDao {
 	public int insert(MVCBoardDto dto);
 	public int update(MVCBoardDto dto);
 	public int delete(int seq);
-	public int multiDelete(String[] seqs);
+	public int mutiDelete(String[] seqs);
 }

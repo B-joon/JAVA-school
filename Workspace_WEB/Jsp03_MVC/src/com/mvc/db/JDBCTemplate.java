@@ -58,15 +58,6 @@ public class JDBCTemplate {
 			e.printStackTrace();
 		}
 	}
-	public static void close(ResultSet rs, Statement stmt, Connection con) {
-		close(rs);
-		close(stmt);
-		close(con);
-	}
-	public static void close(Statement stmt, Connection con) {
-		close(stmt);
-		close(con);
-	}
 	public static void commit(Connection con) {
 		try {
 			con.commit();

@@ -1,6 +1,5 @@
 package com.dto;
-// DAO(data transfer Object) 에서 받은 값을 저장
-// 값을 전달
+
 public class MemberDto {
 	
 	private int m_no;
@@ -11,11 +10,11 @@ public class MemberDto {
 	private String m_job;
 	private String m_tel;
 	private String m_email;
-	// 기본 생성자
+	
 	public MemberDto() {
 		
 	}
-	// 필드 초기화 생성자
+	
 	public MemberDto(int m_no, String m_name, int m_age, String m_gender, String m_location, String m_job, String m_tel,
 			String m_email) {
 		super();

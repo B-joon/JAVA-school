@@ -1,0 +1,22 @@
+package com.test02;
+
+public class Continue {
+
+	public static void main(String[] args) {
+		
+
+	}
+	public static void prn() {
+		
+		int i = 0;
+		
+		while (1 < 10) {
+			i++;
+			if (i % 2 == 0) {
+				continue;
+			}
+			System.out.println(i);
+		}
+	}
+
+}

@@ -28,14 +28,14 @@ public class PrnTest {
 		double d = 90.50d;    // 5자리
 		
 		System.out.printf("시험 점수 결과는%10d 점 이고, 학점은 %5c 가 나왔다.\n", su, ch);
-		System.out.printf("나의 오늘 감정지수는 %10.2f%% 이다\n", d);
+		System.out.printf("나의 오늘 감정지수는%10.2f%%이다\n", d);
 		
 		int age = 27;
 		int m = 11;
 		int day = 24;
 		String name = "최봉준";
 		
-		System.out.printf("오늘은 %d\\%d입니다. 제 나이는 %d입니다. 제 이름은 %s 입니다.", m, day, age, name);
+		System.out.printf("오늘은 %d\\%d입니다. 제 나이는 %d입니다. 제 이름은 %s입니다.", m, day, age, name);
 
 	}
 

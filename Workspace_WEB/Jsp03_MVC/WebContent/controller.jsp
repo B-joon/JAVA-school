@@ -18,22 +18,15 @@
 <%
 	String command = request.getParameter("command");
 	MVCBoardBiz biz = new MVCBoardBizImpl();
-	
-	if (command.equals("list")) {
+
+	if(command.equals("list")) {
 		List<MVCBoardDto> list = biz.selectList();
 		
 		request.setAttribute("list", list);
 		
 		pageContext.forward("./list.jsp");
-	} else if (command.equals("select")) {
-		int seq = Integer.parseInt(request.getParameter("seq"));
-		MVCBoardDto dto = biz.selectOne(seq);
-		
-		request.setAttribute("dto", dto);
-		
-		pageContext.forward("./select.jsp");
 	} else if (command.equals("insert")) {
-		pageContext.forward("./insert.jsp");
+		response.sendRedirect("./insert.jsp");
 	} else if (command.equals("insertres")) {
 		
 		String writer = request.getParameter("writer");
@@ -41,6 +34,7 @@
 		String content = request.getParameter("content");
 		
 		MVCBoardDto dto = new MVCBoardDto();
+		
 		dto.setWriter(writer);
 		dto.setTitle(title);
 		dto.setContent(content);
@@ -49,7 +43,7 @@
 		if (res > 0) {
 %>
 		<script type="text/javascript">
-			alert("저장 완료");
+			alert("저장 성공");
 			location.href="./controller.jsp?command=list";
 		</script>
 <%
@@ -59,18 +53,27 @@
 			alert("저장 실패");
 			location.href="./controller.jsp?command=insert";
 		</script>
-<%		
+<%
 		}
+	} else if (command.equals("select")) {
+		
+		int seq = Integer.parseInt(request.getParameter("seq"));
+		
+		MVCBoardDto dto = biz.selectOne(seq);
+		
+		request.setAttribute("dto", dto);
+		
+		pageContext.forward("select.jsp");
 		
 	} else if (command.equals("update")) {
 		int seq = Integer.parseInt(request.getParameter("seq"));
+		
 		MVCBoardDto dto = biz.selectOne(seq);
 		
 		request.setAttribute("dto", dto);
 		
 		pageContext.forward("./update.jsp");
 	} else if (command.equals("updateres")) {
-		
 		int seq = Integer.parseInt(request.getParameter("seq"));
 		String title = request.getParameter("title");
 		String content = request.getParameter("content");
@@ -81,11 +84,12 @@
 		dto.setContent(content);
 		
 		int res = biz.update(dto);
+		
 		if (res > 0) {
 %>
 		<script type="text/javascript">
 			alert("수정 성공");
-			location.href="./controller.jsp?command=select&seq=<%=seq %>";
+			location.href="./controller.jsp?command=select&seq=<%=seq %>"
 		</script>
 <%
 		} else {
@@ -100,6 +104,7 @@
 		int seq = Integer.parseInt(request.getParameter("seq"));
 		
 		int res = biz.delete(seq);
+		
 		if (res > 0) {
 %>
 		<script type="text/javascript">
@@ -111,17 +116,16 @@
 %>
 		<script type="text/javascript">
 			alert("삭제 실패");
-			location.href="./controller.jsp?command=select&seq=<%=seq %>";
+			location.href="./controller.jsp?command=select&seq=<%=seq%>";
 		</script>
 <%
 		}
 	} else if (command.equals("muldel")) {
 		String[] seqs = request.getParameterValues("chk");
-		
-		if (seqs.length == 0 || seqs == null) {
+		if(seqs == null || seqs.length == 0) {
 %>
 		<script type="text/javascript">
-			alert("삭제하려는 글을 한개 이상 선택해 주세요");
+			alert("삭제할 글을 선택하여 주세요");
 			location.href="./controller.jsp?command=list";
 		</script>
 <%
@@ -130,14 +134,14 @@
 			if (res > 0) {
 %>
 			<script type="text/javascript">
-				alert("선택 삭제 성공");
-				locstion.href="./controller.jsp?command=list";
+				alert("선택한 글을 삭제 성공하였습니다.");
+				location.href="./controller.jsp?command=list";
 			</script>
 <%
 			} else {
 %>
 			<script type="text/javascript">
-				alert("선택 삭제 실패");
+				alert("선택한 글을 삭제 실패하였습니다.");
 				location.href="./controller.jsp?command=list";
 			</script>
 <%

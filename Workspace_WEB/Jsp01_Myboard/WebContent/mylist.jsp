@@ -1,5 +1,5 @@
-<%@page import="com.myboard.dao.MyBoardDao"%>
 <%@page import="java.util.List"%>
+<%@page import="com.myboard.dao.MyBoardDao"%>
 <%@page import="com.myboard.dto.MyBoardDto"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>

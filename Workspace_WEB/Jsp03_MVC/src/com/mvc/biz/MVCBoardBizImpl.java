@@ -6,7 +6,7 @@ import com.mvc.dao.MVCBoardDao;
 import com.mvc.dao.MVCBoardDaoImpl;
 import com.mvc.dto.MVCBoardDto;
 
-public class MVCBoardBizImpl implements MVCBoardBiz{
+public class MVCBoardBizImpl implements MVCBoardBiz {
 	
 	MVCBoardDao dao = new MVCBoardDaoImpl();
 

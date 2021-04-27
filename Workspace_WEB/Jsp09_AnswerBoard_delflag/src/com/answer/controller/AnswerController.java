@@ -24,6 +24,7 @@ public class AnswerController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
 	}
+
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		request.setCharacterEncoding("UTF-8");
 		response.setContentType("text/html; charset=UTF-8");
@@ -43,13 +44,11 @@ public class AnswerController extends HttpServlet {
 			AnswerDto dto = biz.selectOne(boardno);
 			request.setAttribute("dto", dto);
 			dispatch(request, response, "boardselect.jsp");
-			
 		} else if (command.equals("answerform")) {
 			int boardno = Integer.parseInt(request.getParameter("boardno"));
 			AnswerDto dto = biz.selectOne(boardno);
 			request.setAttribute("dto", dto);
 			dispatch(request, response, "answerform.jsp");
-			
 		} else if (command.equals("answerproc")) {
 			int parentBoardNo = Integer.parseInt(request.getParameter("parentBoardNo"));
 			String title = request.getParameter("title");
@@ -70,13 +69,16 @@ public class AnswerController extends HttpServlet {
 			}
 		}
 	}
+	
 	private void jsResponse(HttpServletResponse response, String url, String msg) throws IOException {
 		PrintWriter out = response.getWriter();
 		String s = "<script>alert('"+msg+"');location.href='"+url+"';</script>";
 		out.println(s);
 	}
+	
 	private void dispatch(HttpServletRequest request, HttpServletResponse response, String path) throws ServletException, IOException {
 		RequestDispatcher dispatcher = request.getRequestDispatcher(path);
 		dispatcher.forward(request, response);
 	}
+
 }

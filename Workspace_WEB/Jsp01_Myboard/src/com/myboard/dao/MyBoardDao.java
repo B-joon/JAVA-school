@@ -141,6 +141,7 @@ public class MyBoardDao {
 			close(pstm);
 			close(con);
 		}
+		
 		return res;
 	}
 	public int delete(int seq) {

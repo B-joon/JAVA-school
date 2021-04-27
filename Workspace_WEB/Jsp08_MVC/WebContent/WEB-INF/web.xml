@@ -7,7 +7,7 @@
   
   <servlet>
   	<servlet-name>MVC</servlet-name>
-  	<servlet-class>com.mvc.controller</servlet-class>
+  	<servlet-class>com.mvc.controller.MVCController</servlet-class>
   </servlet>
   
   <servlet-mapping>

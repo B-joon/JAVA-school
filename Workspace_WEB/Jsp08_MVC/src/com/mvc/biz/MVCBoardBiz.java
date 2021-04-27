@@ -11,5 +11,5 @@ public interface MVCBoardBiz {
 	public int insert(MVCBoardDto dto);
 	public int update(MVCBoardDto dto);
 	public int delete(int seq);
-	public int multiDelete(String[] seqs);
+	public int mutiDelete(String[] seqs);
 }

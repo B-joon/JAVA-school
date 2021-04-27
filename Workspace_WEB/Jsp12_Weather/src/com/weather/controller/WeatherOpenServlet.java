@@ -34,5 +34,5 @@ public class WeatherOpenServlet extends HttpServlet {
 	}
 	// jstl : Jsp Standard Tag Library -> 표준 태그 모음집
 	// c:~ -> core library
-	// x:~ -> xml library => apach xalan.jar.com
+	// x:~ -> xml library => apach xalan.jar
 }

@@ -5,19 +5,19 @@ public class TypeToType01 {
 	public static void main(String[] args) {
 		
 		// 1. int to char
-//		int i = 65;
-//		char c = (char)i;
-//		System.out.println(i + " = " + c);
-//		
-//		// 2. char to int
-//		char c2 = 'B';
-//		int i2 = (int)c2;
-//		System.out.println(i2 + " = " + c2);
-//		
-//		char c3 = '1';
-//		char c4 = '9';
-//		int i3 = c3 + c4;
-//		System.out.println(i3);
+		int i = 65;
+		char c = (char)i;
+		System.out.println(i + " = " + c);
+		
+		// 2. char to int
+		char c2 = 'B';
+		int i2 = (int)c2;
+		System.out.println(i2 + " = " + c2);
+		
+		char c3 = '1';
+		char c4 = '9';
+		int i3 = c3 + c4;
+		System.out.println(i3);
 		
 		// 3. String to int
 		String str = "33";

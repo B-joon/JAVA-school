@@ -1,0 +1,38 @@
+package com.homework;
+
+import java.util.Arrays;
+import java.util.Random;
+
+public class Test {
+
+
+
+
+
+	public static void main(String[] args) {
+		
+		String[] srt = {"조가린", "김호수", "정현우", "손승현", "소윤정", "박창희", "김태린", "지혜성", "박정수"
+				, "한지연", "강성필", "한우빈", "이정은", "차가람", "손혁중", "장보옥", "박은희", "강원기", "이용준",
+				"박성종", "박찬종", "노유섭", "임기원", "김도한", "김진현", "이영주", "김세윤", "이재희", "김대진", "최봉준"};
+	    String b[]=new String[srt.length];
+	    Random r=new Random();
+	    
+	    
+	    for (int i = 0; i < b.length; i++) {
+	    	int x = r.nextInt(srt.length - 1);
+			b[x] = srt[x];
+			if (srt[x] == b[x]) {
+				i--;
+			}
+			System.out.println(b[x]);
+		}
+
+	}
+}
+
+// 야구게임 숫자 3개로 10번
+// 지뢰찾기 
+// n 을 입력하면
+// n * n 의 맵이 만들어지고, n개의 지뢰가 만들어짐
+// 가로, 세로 입력해주면 해당 위치에
+// 

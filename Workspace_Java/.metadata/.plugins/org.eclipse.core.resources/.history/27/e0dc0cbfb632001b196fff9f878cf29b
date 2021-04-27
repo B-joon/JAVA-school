@@ -1,0 +1,14 @@
+package com.cal;
+/*
+ * ① 서력 기원 연수가 4로 나누어 떨어지는 해는 우선 윤년으로 하고
+ * ② 그 중에서 100으로 나누어 떨어지는 해는 평년으로 하며
+ * ③ 다만 400으로 나누어 떨어지는 해는 다시 윤년으로 정하였다.
+ */
+public class LeapYear {
+
+	public static void main(String[] args) {
+
+
+	}
+
+}

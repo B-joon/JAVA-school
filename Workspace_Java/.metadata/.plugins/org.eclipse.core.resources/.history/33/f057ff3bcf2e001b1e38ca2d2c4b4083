@@ -1,0 +1,18 @@
+package com.test01;
+
+public class MTest {
+
+	public static void main(String[] args) {
+		
+		
+		basketPrn();
+
+	}
+	public void basketSetting(String name, int fruit) {
+		fruitName = name;
+	}
+	public void basketPrn() {
+		System.out.println("바구니 안의 과일 : " + fruitName);
+	}
+
+}

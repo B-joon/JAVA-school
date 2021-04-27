@@ -1,0 +1,17 @@
+package com.test04;
+
+public class MTest {
+
+	public static void main(String[] args) {
+
+		StarPrn.prn01();
+		System.out.println();
+		StarPrn.prn02();
+		System.out.println();
+		StarPrn.prn03();
+//		star.prn04();
+//		star.prn05();
+
+	}
+
+}

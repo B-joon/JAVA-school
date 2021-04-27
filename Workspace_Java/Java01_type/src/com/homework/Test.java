@@ -4,15 +4,17 @@ public class Test {
 
 	public static void main(String[] args) {
 
-		String a = "abc";
-		String b = "abc";
-		String c = new String("abc");
+		int[][] arr = new int[3][3];
+		int num = 0;
+		for (int i = 0; i < 3; i++) {
+			for (int j = 0; j < 3; j++) {
+				arr[i][j] = num++;
+			}
+		}
+		System.out.println(arr.toString());
 
-		System.out.println(a == b);			// true
-		System.out.println(a == c);			// false
-		System.out.println(a.equals(b));	// true
-		System.out.println(a.equals(c));	// true
 	}
+
 }
 
 // 야구게임 숫자 3개로 10번

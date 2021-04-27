@@ -1,0 +1,20 @@
+package com.homework;
+
+public class Test {
+
+
+
+
+
+	public static void main(String[] args) {
+		
+
+	}
+}
+
+// 야구게임 숫자 3개로 10번
+// 지뢰찾기 
+// n 을 입력하면
+// n * n 의 맵이 만들어지고, n개의 지뢰가 만들어짐
+// 가로, 세로 입력해주면 해당 위치에
+// 

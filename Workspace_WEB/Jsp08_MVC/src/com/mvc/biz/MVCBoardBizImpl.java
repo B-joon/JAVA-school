@@ -7,9 +7,9 @@ import com.mvc.dao.MVCBoardDaoImpl;
 import com.mvc.dto.MVCBoardDto;
 
 public class MVCBoardBizImpl implements MVCBoardBiz {
-	
-	MVCBoardDao dao = new MVCBoardDaoImpl();
 
+	MVCBoardDao dao = new MVCBoardDaoImpl();
+	
 	@Override
 	public List<MVCBoardDto> selectList() {
 		return dao.selectList();
@@ -36,8 +36,8 @@ public class MVCBoardBizImpl implements MVCBoardBiz {
 	}
 
 	@Override
-	public int multiDelete(String[] seqs) {
-		return dao.multiDelete(seqs);
+	public int mutiDelete(String[] seqs) {
+		return dao.mutiDelete(seqs);
 	}
 
 }

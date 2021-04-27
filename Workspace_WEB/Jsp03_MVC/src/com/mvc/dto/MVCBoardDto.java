@@ -11,7 +11,7 @@ public class MVCBoardDto {
 	private Date date;
 	
 	public MVCBoardDto() {
-		
+
 	}
 	public MVCBoardDto(int seq, String writer, String title, String content, Date date) {
 		this.seq = seq;
@@ -20,6 +20,7 @@ public class MVCBoardDto {
 		this.content = content;
 		this.date = date;
 	}
+	
 	public int getSeq() {
 		return seq;
 	}
@@ -50,4 +51,5 @@ public class MVCBoardDto {
 	public void setDate(Date date) {
 		this.date = date;
 	}
+	
 }
