@@ -37,7 +37,7 @@
 					<tr>
 						<td>${dto.myno }</td>
 						<td>${dto.myname }</td>
-						<td><a href="">${dto.mytitle }</a></td>
+						<td><a href="detail.do?myno=${dto.myno }">${dto.mytitle }</a></td>
 						<td>${dto.mydate }</td>
 					</tr>
 				</c:forEach>
@@ -45,7 +45,7 @@
 		</c:choose>
 		<tr>
 			<td colspan="4" align="right">
-				<input type="button" value="글작성" onclick="">
+				<input type="button" value="글작성" onclick="location.href='insertform.do'">
 			</td>
 		</tr>
 	</table>

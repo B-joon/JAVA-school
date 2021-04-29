@@ -9,9 +9,8 @@
 <body>
 
 	<a href="list.do">list...</a>
-	<br/>
-	<a href="loginform.do">login...</a>
-	<a href="signUpForm.do">signUp...</a>
-	
+	<br>
+	<a href="loginform.do">login</a>
+
 </body>
 </html>

@@ -5,28 +5,35 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class LogAop {
-	
+
 	public void before(JoinPoint join) {
-		Logger logger = LoggerFactory.getLogger(join.getTarget() + ""); // ÎåÄÏÉÅ Í∞ùÏ≤¥ 
-		logger.info("============== AOP Start ============");
-		Object [] args = join.getArgs();
-		if(args != null) {
-			logger.info("nethod  : " + join.getSignature().getName());;
-			for(int i = 0 ; i < args.length; i++) {
-				logger.info(i + "Î≤àÏß∏  : "+ args[i]);
+		Logger logger = LoggerFactory.getLogger(join.getTarget() + "");		// ¥ÎªÛ ∞¥√º
+		logger.info("----------AOP Start----------");
+		
+		Object[] args = join.getArgs();										// ¥ÎªÛ ∆ƒ∂ÛπÃ≈Õ
+		if (args != null) {
+			logger.info("method : " + join.getSignature().getName());		// ¥ÎªÛ ∏ﬁº≠µÂ ¡§∫∏
+			for (int i = 0; i < args.length; i++) {
+				logger.info(i+"π¯¬∞ : " + args[i]);
 			}
 		}
 	}
 	
 	public void after(JoinPoint join) {
 		Logger logger = LoggerFactory.getLogger(join.getTarget() + "");
-		logger.info("=========== AOP end +===========");
+		logger.info("----------AOP End----------");
 	}
 	
 	public void afterThrowing(JoinPoint join) {
 		Logger logger = LoggerFactory.getLogger(join.getTarget() + "");
-		logger.info("===== AOP Error Log ========");
-		logger.info("ERROR : "+ join.getArgs());
+		logger.info("----------AOP Error Log----------");
+		logger.info("ERROR : " + join.getArgs());
 		logger.info("ERROR : " + join.toString());
 	}
+	
 }
+
+
+
+
+

@@ -4,12 +4,14 @@
 
 	<typeAliases>
 		<typeAlias type="com.mvc.upgrade.model.dto.MYBoardDto" alias="myBoardDto" />
-		<typeAlias type="com.mvc.upgrade.model.dto.MYMemberDto" alias="myMemberDto" />
+		<typeAlias type="com.mvc.upgrade.model.dto.MYMemberDto" alias="myMemberDto"/>
 	</typeAliases>
 
 	<mappers>
 		<mapper resource="/mybatis/myboard-mapper.xml" />
 		<mapper resource="/mybatis/mymember-mapper.xml" />
 	</mappers>
+	
+	
 
 </configuration>

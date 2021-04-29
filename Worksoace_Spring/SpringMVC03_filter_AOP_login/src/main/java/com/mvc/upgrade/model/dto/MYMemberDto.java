@@ -1,26 +1,20 @@
 package com.mvc.upgrade.model.dto;
 
-
-
 public class MYMemberDto {
 	
-	private int memberno;
-	private String memberid;
-	private String memberpw;
+	private int memberno; 
+	private String memberid; 
+	private String memberpw; 
 	private String membername;
-	
 	public MYMemberDto() {
-		// TODO Auto-generated constructor stub
+		
 	}
-	
 	public MYMemberDto(int memberno, String memberid, String memberpw, String membername) {
-		super();
 		this.memberno = memberno;
 		this.memberid = memberid;
 		this.memberpw = memberpw;
 		this.membername = membername;
 	}
-
 	public int getMemberno() {
 		return memberno;
 	}
@@ -45,6 +39,7 @@ public class MYMemberDto {
 	public void setMembername(String membername) {
 		this.membername = membername;
 	}
+	
 	
 	
 

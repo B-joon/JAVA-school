@@ -5,55 +5,73 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
-<script src="https://code.jquery.com/jquery-3.6.0.min.js" ></script>
 
-<script>
-$(function(){
-	$("#loginChk").hide();
-})
+<script type="text/javascript" src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script type="text/javascript">
 
-function login(){
-	var memberid = $("#memberid").val().trim();
-	var memberpw = $("#memberpw").val().trim();
-	var loginVal = {
-			"memberid" : memberid,
-			"memberpw" : memberpw
-	}
+	$(function() {
+		$("#loginChk").hide();
+		
+	});
 	
-	if(!!memberid && !!memberpw ){
-		console.log(loginVal)
-		$.ajax({
-			type : "POST",
-			url : "ajaxlogin.do",
-			data : JSON.stringify(loginVal),
-			contentType : "application/json",
-			dataType : "json",
-			success : function(msg){
-				if(msg.check){
-					location.href="list.do";
-				}else{
-					$("#loginChk").show();
-					$("#loginChk").html("id혹은 pw가 잘못되었습니다. ");
+	function login(){
+		var memberid = $("#memberid").val().trim(); 
+		var memberpw = $("#memberpw").val().trim(); 
+		var loginVal= {
+				"memberid":memberid,
+				"memberpw":memberpw
+				
+		}
+		if(memberid==null || memberid=="" || memberpw ==null || memberpw==""){
+			alert("ID 및 PW를 다시 확인해 주세요");
+		}else{
+			$.ajax({
+				type:"post",
+				url:"ajaxlogin.do",
+				data:JSON.stringify(loginVal),
+				contentType:"application/json",
+				dataType:"json",
+				success:function(msg){
+					if(msg.check==true){
+						location.href="list.do";
+					}else{
+						$("#loginChk").show(); 
+						$("#loginChk").html("ID 혹은 PW가 잘못되었습니다.")
+					}
+				},
+				error:function(){
+					alert("통신 실패...")
 				}
-			}, 
-			error: function(){
-				alert("failed");
-			}
-		})
-	}else{
-		alert(" id 및 pw를 확인해 주세요 ");
+			})
+		}
 	}
 	
-}
+
 </script>
 </head>
 <body>
 
-<div style="width:600px;margin: 0 auto;">
-    <label>id</label><input type="text" id="memberid"/>
-    <label>password</label><input type="text" id="memberpw"/>
-    <input type="button" onclick="login()" value="submit~"/>
-    <span id="loginChk" style="display:inline-block;width:30px;height:30px;background-color:green;"></span>
-</div>
+	<table>
+		<tr>
+			<th>ID</th>
+			<td><input type="text" id="memberid"/></td>
+		
+		</tr>
+	
+		<tr>
+			<th>PW</th>
+			<td><input type="text" id="memberpw"/></td>
+		
+		</tr>
+		<tr>
+			<td colspan="2"><input type="button" value="login" onclick="login();"></td>
+		</tr>
+		<tr>
+			<td colspan="2" align="center" id="loginChk"></td>
+		</tr>
+		
+	
+	</table>
+
 </body>
 </html>
