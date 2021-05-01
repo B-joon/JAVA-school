@@ -26,4 +26,10 @@ public class MYMemberDaoImpl implements MYMemberDao {
 		return res;
 	}
 
+	@Override
+	public MYMemberDto signUp(MYMemberDto dto) {
+
+		return null;
+	}
+
 }

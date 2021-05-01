@@ -7,6 +7,6 @@ public interface MYMemberDao {
 	String NAMESPACE = "mymember.";
 	
 	public MYMemberDto login(MYMemberDto dto); 
+	public MYMemberDto signUp(MYMemberDto dto);
 	
-
 }
