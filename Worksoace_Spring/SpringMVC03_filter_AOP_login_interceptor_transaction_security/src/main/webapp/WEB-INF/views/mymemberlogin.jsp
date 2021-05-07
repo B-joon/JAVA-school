@@ -28,9 +28,9 @@
 			$.ajax({
 				type:"post",
 				url:"ajaxlogin.do",
-				data:JSON.stringify(loginVal),
-				contentType:"application/json",
-				dataType:"json",
+				data:JSON.stringify(loginVal),		//JSON.stringify() 메서드는 JavaScript 값이나 객체를 JSON문자열로 변환합니다.
+				contentType:"application/json",		// JSON문자열을 JSON Object 형태로 바꿔줌
+				dataType:"json",					// Jackson 어쩌고 시리즈가 map -> json 형태로 리턴해줘서 테이터 타입이 json
 				success:function(msg){
 					if(msg.check==true){
 						location.href="list.do";

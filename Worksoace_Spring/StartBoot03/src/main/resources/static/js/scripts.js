@@ -1,0 +1,3 @@
+onlocad=function(){
+	alert("test");
+}

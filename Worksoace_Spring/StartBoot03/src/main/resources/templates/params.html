@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html xmlns="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+
+	<h1 th:text="|hello, ${#request.getParameter('id')}|">hello, parameter.id</h1>
+	<h1 th:text="|hello, ${param.id}|">hello, parameter.id</h1>
+	
+	<h1 th:text="${session.pw}">session.pw</h1>
+	<h1 th:text="${session['pw']}"></h1>
+
+</body>
+</html>

@@ -15,6 +15,19 @@
 		<input type="hidden" name="name" value="${fileObj.name }">
 		<input type="submit" value="download">
 	</form>
+	
+	<!-- 
+		tomcat web.xml
+		mime-type (Multipurpose Internet Mail Extension)
+		데이터가 어떤 종류의 stream인지를 나타내주는 프로토콜 (request header에 지정!)
+		
+		mine-type 추가!
+		
+		<min-mapping>
+			<extension>hwp</extension>
+			<mine-type>application/unknown</mine-type>
+		</min-mapping>
+	 -->
 
 </body>
 </html>
